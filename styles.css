@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 32px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.header a {
+  text-decoration: none;
+  color: #1e1b4b;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #1e1b4b;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  color: #5b21b6;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.header .login-link {
+  background-color: #5b21b6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+.leaderboard {
+  width: 100%;
+  max-width: 600px;
+  margin: 24px auto;
+  border: 2px solid #5b21b6;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: white;
+  color: #1e1b4b;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr) 70px;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.leaderboard-heading {
+  background-color: #5b21b6;
+  color: white;
+  font-weight: bold;
+}
+
+#leaderboard-body .leaderboard-row + .leaderboard-row {
+  border-top: 1px solid #d1d5db;
+}
+
+#leaderboard-body .leaderboard-row:nth-child(even) {
+  background-color: #f7f7fc;
+}
+
+.leaderboard-row > :nth-child(2) {
+  overflow-wrap: anywhere;
+}
+
+.leaderboard-row > :last-child {
+  text-align: right;
+}
+
+.reload-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  flex-shrink: 0;
+  border: 1px solid #1e1e1e;
+  border-radius: 50%;
+  background-color: #ede9fe;
+  color: #1e1b4b;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.reload-button svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.reload-button:hover {
+  background-color: #5b21b6;
+  color: white;
+}
+
+.reload-button:focus-visible {
+  outline: 3px solid #1e1b4b;
+  outline-offset: 3px;
+}

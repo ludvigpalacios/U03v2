@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>BrainRush</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo.svg" alt="" width="40" height="40">
+            <span>BrainRush</span>
+        </a>
+
+<nav class="navigation">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="quiz.html">Play Quiz</a></li>
+    <li><a href="leaderboard.html">Leaderboard</a></li>
+    <li><a href="friends.html">Friends</a></li>
+  </ul>
+</nav>
+
+        <a href="login.html" class="login">Log in</a>
+    </header>
+
+    <main>
+        <p>All players</p>
+        <h1>Global Leader Board</h1>
+        <p>Top scores from five-question sprints.</p>
+
+        <div class="leaderboard-info">
+            <p>Refresh to see the latest scores.</p>
+
+            <button id="refresh-button" class="reload-button" type="button" aria-label="Refresh leaderboard"
+                title="Refresh leaderboard">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 7v5h-5M20 12a8 8 0 1 0-2 5" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="leaderboard" role="table" aria-label="Top 10 players">
+            <div class="leaderboard-row leaderboard-heading" role="row">
+                <span role="columnheader">Rank</span>
+                <span role="columnheader">Player</span>
+                <span role="columnheader">Score</span>
+            </div>
+
+            <div id="leaderboard-body" role="rowgroup"></div>
+        </div>
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>
