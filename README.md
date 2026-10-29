@@ -1,74 +1,37 @@
-# Quiz app - Login & Create Account
+# U03 – Quiz App
+figma: https://ethics-muse-27596105.figma.site
 
-Website
+**Skapad av Abiha, Haniah, Soha och Ludvig**
 
-https://ludvigpalacios.github.io/U03/
+### Arbetsfördelning
 
-This is a small front-end project where I built a website with a login page, a create account page, and a simple menu with selection buttons such as **Play**, **Leaderboard**, and **Friends**.
+* **Startsidan och Login:** Ludvig
+* **Quiz och frågor:** Soha
+* **Leaderboard:** Abiha
+* **Friends:** Haniah
 
-The project focuses on HTML, CSS and JavaScript, especially things like grid layout, event listeners, forms, local storage and reusable code.
+### README ska innehålla
 
-## Features
+* Namn på alla i teamet.
+* En sammanfattning av hur appen fungerar.
+* Våra skisser.
+* Länk till den publicerade appen.
+* En reflektion över styrkor och brister.
+* Om vi har använt AI-verktyg, vad de användes till och hur vi granskade det som genererades.
 
-### Start page and login
+### Hur appen fungerar
 
-- Built the first page skeleton with a login button, reference text and basic styling.
-- Added a login popup using the `<dialog>` element.
-- Added inputs for email and password, with proper labels and attributes for better accessibility.
-- The login popup can be opened and closed with event listeners.
-- The layout uses CSS grid and flexbox, with colors, shadows and hover effects.
+Appen börjar på startsidan där spelaren kan välja mellan två quiz, ett med logiska frågor och ett med kreativa frågor. Varje quiz består av fem frågor som är sparade lokalt i en JSON-fil.
 
-### Create account
+För varje fråga finns det fyra svarsalternativ som spelaren kan välja mellan. En timer går i bakgrunden och spelaren har fem minuter på sig att besvara alla fem frågorna.
 
-- Added a separate create account page.
-- Users can enter a username, email and password.
-- The page checks for duplicate usernames or emails before saving a new account.
-- Input fields use autofill attributes and email suggestions.
-- Basic validation checks if a field is empty or if the password is too short.
+För varje fråga som spelaren svarar rätt på får hen 100 poäng. Tiden som är kvar när quizet avslutas ger extra poäng beroende på hur mycket tid som återstår på klockan.
 
-### Saving accounts
+När quizet är färdigspelat kan spelaren välja att spela igen, spara sitt resultat genom att skapa ett konto eller gå vidare till leaderboarden för att se andra spelares poäng.
 
-- Accounts are saved in the browser using `localStorage`.
-- Existing JSON data is read and parsed into JavaScript when the page loads.
-- A `try...catch` block is used to handle invalid JSON or other errors.
-- New accounts are added to the saved list and stored back in local storage.
+Det finns även en Friends-sida där spelaren kan lägga till sina vänner och skapa sin egen vänkrets.
 
-### Login feedback
+All login information sparas i en fil på lokalt.
 
-- When logging in, the entered email and password are checked against the saved accounts.
-- A feedback container shows whether the account was found or not.
-- The feedback text changes style depending on the result, for example red for a warning and green for a confirmation.
+Vad funkade bra?
 
-### Menu and styling
-
-- Added selection buttons for **Play**, **Leaderboard** and **Friends**.
-- One button is highlighted as selected, with **Play** selected by default.
-- The buttons are positioned and sized using CSS grid and `justify-self`.
-- Added styling for warning and confirmation messages.
-
-## JavaScript structure
-
-The JavaScript is split into separate files for each page instead of keeping everything in one file.
-
-- `login.js` handles the login page and login logic.
-- `createAccount.js` handles creating a new user and duplicate checks.
-- Shared or repeated code was cleaned up and reused where possible.
-- Button IDs were added so the elements can be used from other scripts.
-- Confetti was added for future use.
-
-## What I learned
-
-- Working with `<dialog>` popups.
-- Using event listeners for clicks and the Enter key.
-- Reading, parsing and saving JSON with `localStorage`.
-- Handling errors with `try...catch`.
-- Checking arrays for duplicates with `forEach` and conditional statements.
-- Building layouts with CSS grid and flexbox.
-- Reusing code and keeping JavaScript split into smaller files.
-
-## Technologies
-
-- HTML
-- CSS
-- JavaScript
-- LocalStorage
