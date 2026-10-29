@@ -1,0 +1,296 @@
+/*Phone size suited for iphone 16 */
+
+:root {
+    font-family: "DM Sans:SemiBold", "DM Sans", sans-serif;
+    font-size:100%; /*10px */
+    /*Create root varible */
+    --standard: black;
+    --header1: #111021;
+    --paragraph: #68658b;
+
+    
+}
+
+
+
+body{
+    box-sizing: border-box;
+    display:flex;
+    flex-direction:column;
+    
+}
+
+header{
+    /*width:min(860px);*/ 
+    height:2rem;
+    display:grid;
+    grid-template-columns: 10rem  1fr 5rem;
+    grid-template-rows: 1fr;
+
+    grid-template-areas: 
+    "brandmark something button";
+
+    /*decor */
+    padding:0.5rem;
+    border-bottom: 1px solid rgb(30 27 75 / 14%);
+
+
+}
+.brand-mark{
+    width:2rem;
+    grid-area:brandmark;
+}
+.header-button{
+    grid-area:button;
+    border:1px solid grey;
+    box-shadow:0 18px 35px rgb(30 27 75 / 13%);
+
+
+}
+.header-button:hover{
+    background-color:#c9c9c9;
+}
+
+
+
+
+
+.main-app{
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+
+    /*width: min(860px);*/
+
+    /*Decor */
+    padding:56px 24px 0px 24px; 
+    text-align:center;
+    height:100vh;
+    p, span{
+        color:var(--paragraph);
+    
+    }
+
+}
+
+/*Button */
+
+button{
+    background-color:white;
+    border-radius: 2vh;
+    margin:0px;
+    padding:0px;
+    border:1px solid black;
+    
+    /*Add hand when hovering*/
+    cursor:pointer;
+
+}
+
+.app-buttons{
+    display:flex;
+    flex-direction: column;
+    
+}
+
+.app-button{
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    text-align: start;
+    margin:0.5rem 0rem;
+
+    /*decor */
+    background-color: white;
+    height:8rem;
+    justify-content: space-between;
+    padding:1.2rem;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    
+}
+.app-button:hover{
+    transform: translateY(-5px);
+    box-shadow:0 18px 35px rgb(30 27 75 / 13%);
+    background:#fdfdff;
+}
+
+.header-2{
+    color:var(--header1);
+    font-weight: 600;
+    font-size:1.4rem;
+}
+
+
+
+.bottomApp-selection-buttons, .topApp-selection-buttons{
+    box-sizing: border-box;
+    display:flex;
+    align-self:center;
+    
+    background-color: #efeff7;
+    border:none;
+    height:40px;
+    padding:2px 4px;
+    
+    border-radius: 2vh;
+
+    /*Put the buttons at the start end of the screen */
+    margin-top:3vh;
+    margin-bottom:1rem;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    box-shadow:0 8px 30px #1e1b4b33;
+
+    grid-area:app-selection-buttons;
+
+    button {
+        border:none;
+        padding:1%;
+        width:7rem;
+        height: stretch;
+        background-color: #efeff7;
+        
+
+    }
+
+}
+
+.hide {
+    display:none
+}
+
+.warning {
+    color:rgb(122, 0, 0);
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding:0rem;
+    margin:0.5rem 0rem;
+    margin-top:0rem;
+    margin-bottom:1rem;
+    
+}
+.comfirm{
+    color:green;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding:0rem;
+    margin:0.5rem 0rem;
+    margin-top:0rem;
+    margin-bottom:1rem;
+
+
+}
+
+.topApp-selection-buttons button.selectedButton, .bottomApp-selection-buttons button.selectedButton{
+    background-color: #ffff;
+    box-shadow:0 2px 10px #1e1b4b17;
+}
+
+/* Gif, not important*/
+.gifConfetti{
+    position:fixed;
+    object-fit: cover;
+    z-index:9999;
+    pointer-events: none;
+    height:100%;
+    width: 100%;
+}
+
+#createAccount{
+    color:inherit;
+}
+
+@media (min-width:700px){
+    #appSelectionButton{
+        width:16rem;
+        height:4rem;
+        font-size:large;
+        border-radius: 3vh;
+    }
+}
+
+@media (max-width:1000px){
+    .topApp-selection-buttons{
+        display:none;
+    }
+}
+
+@media (min-width:1000px){
+
+    .main-app-header{
+        font-size:1.5rem;
+    }
+    .topApp-selection-buttons{
+        margin:0.5rem;
+        
+        
+    }
+    #appSelectionButton{
+        margin:2px;
+        width:10rem;
+        height:3rem;
+        font-size:large;
+        
+    }
+    .bottomApp-selection-buttons{
+        display:none;
+    }
+    div.app-buttons{
+        flex-direction:row;
+        justify-content: center;
+        gap:10rem;
+        .app-button{
+            width:30rem;
+            height:30rem;
+            display:flex;
+            box-sizing: border-box;
+            text-align:center;
+            border:1px solid grey;
+            padding:4rem;
+            span{
+                font-size:1.5rem;
+            }
+            .header-2{
+                font-size:250%;
+                color:#111021;
+                
+            }
+            
+            
+        }
+    }header{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        grid-template-areas: 
+        "brandmark app-selection-buttons button";
+        height:fit-content;
+
+        
+        .topApp-selection-buttons{
+            margin:0px;
+            justify-self:center;
+            height:3.5rem;
+            >*{
+                width:10rem;
+                font-size:1.2rem;
+                
+            }
+        }
+        .brand-mark{
+            width:4rem;
+
+        }
+        .header-button{
+            margin-left:auto;
+            width:10rem;
+            border:1px solid grey;
+            font-size:1.2rem;
+        }
+
+
+    }
+    #saveProgress{
+        font-size:1.2rem;
+    }
+}

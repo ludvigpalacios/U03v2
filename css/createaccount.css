@@ -1,0 +1,27 @@
+
+.goBackButton{ 
+    justify-self:center;
+}
+.CreateAccount-button{
+    background-color: aqua;
+}
+.account-create-body{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:auto;
+    height:100%;
+}
+#closeCreateAccount{
+    color:inherit;
+
+}
+
+@media (min-width:600px){
+    .account-create-body{
+        grid-template-columns: 0.8fr 1.2fr;
+    }.login-header{
+        
+    }
+}
+
+
