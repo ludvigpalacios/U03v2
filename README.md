@@ -33,5 +33,9 @@ Det finns även en Friends-sida där spelaren kan lägga till sina vänner och s
 
 All login information sparas i en fil på lokalt.
 
-Vad funkade bra?
+### Vad funkade bra?
+
+Det som gick bra var att skapa wireframes på workshopen och använda figma make för att skapa en bra prototyp av våra simpla wireframes så att vi hade en ide om hur vi skulle gestalta och strukturera vår app.
+
+Uppdelningen av sdiorna gick också bra där alla fick den delen som de var mest intereserade av.
 
