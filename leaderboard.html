@@ -10,45 +10,78 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <a href="index.html" class="logo">
             <img src="logo.svg" alt="" width="40" height="40">
-            <span>BrainRush</span>
+            <span class="logotext">BrainRush</span>
         </a>
 
-<nav class="navigation">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="quiz.html">Play Quiz</a></li>
-    <li><a href="leaderboard.html">Leaderboard</a></li>
-    <li><a href="friends.html">Friends</a></li>
-  </ul>
-</nav>
+        <nav class="navigation" aria-label="main-navigation">
+            <ul>
+                <li><a href="quiz.html">Play</a></li>
+                <li><a href="leaderboard.html" aria-current="page">Leaderboard</a></li>
+                <li><a href="friends.html">Friends</a></li>
+            </ul>
+        </nav>
 
         <a href="login.html" class="login">Log in</a>
     </header>
 
     <main>
-        <p>All players</p>
-        <h1>Global Leader Board</h1>
-        <p>Top scores from five-question sprints.</p>
+        <section class="leaderboard-intro">
+            <div>
+                <p class="players">All players</p>
+                <h1>Global Leaderboard</h1>
+                <p class="intro">Top scores from five-question sprints.</p>
+            </div>
+            <div class="season">
+                <p>Current Season</p>
+                <strong>Spring Sprint</strong>
+            </div>
+        </section>
+        <section class="podium" aria-label="Top three players">
+            <article class="podium-card second-place">
+                <span class="rank-badge" aria-label="Rank 2">2</span>
+                <div class="player-avatar" aria-hidden="true">TB</div>
+                <h2>Theo Brooks</h2>
+                <p class="player-handle">@theologic</p>
+                <p class="player-points">542 pts</p>
+            </article>
 
-        <div class="leaderboard-info">
-            <p>Refresh to see the latest scores.</p>
+            <article class="podium-card first-place">
+                <span class="rank-badge" aria-label="Rank 1">1</span>
+                <div class="player-avatar" aria-hidden="true">MC</div>
+                <h2>Maya Chen</h2>
+                <p class="player-handle">@mayamakes</p>
+                <p class="player-points">558 pts</p>
+            </article>
 
-            <button id="refresh-button" class="reload-button" type="button" aria-label="Refresh leaderboard"
-                title="Refresh leaderboard">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M20 7v5h-5M20 12a8 8 0 1 0-2 5" />
-                </svg>
-            </button>
-        </div>
+            <article class="podium-card third-place">
+                <span class="rank-badge" aria-label="Rank 3">3</span>
+                <div class="player-avatar" aria-hidden="true">NA</div>
+                <h2>Nora Ali</h2>
+                <p class="player-handle">@norathinks</p>
+                <p class="player-points">527 pts</p>
+            </article>
+        </section>
 
         <div class="leaderboard" role="table" aria-label="Top 10 players">
             <div class="leaderboard-row leaderboard-heading" role="row">
                 <span role="columnheader">Rank</span>
                 <span role="columnheader">Player</span>
-                <span role="columnheader">Score</span>
+                <span role="columnheader">Quizzes</span>
+
+                <div class="scoreheader" role="columnheader">
+                    <span>Best Score</span>
+
+                    <button id="refresh-button" class="reload-button" type="button" aria-label="Refresh leaderboard"
+                        title="Refresh leaderboard">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 7v5h-5M20 12a8 8 0 1 0-2 5" />
+                        </svg>
+                    </button>
+                </div>
+
             </div>
 
             <div id="leaderboard-body" role="rowgroup"></div>

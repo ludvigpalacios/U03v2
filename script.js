@@ -9,12 +9,14 @@ function saveHighScore(playerName, score) {
 
   if (existingPlayer) {
     existingPlayer.score = Math.max(existingPlayer.score, score);
+    existingPlayer.quizzes = (existingPlayer.quizzes ?? 0) + 1;
   } else {
-    players.push({ name: playerName, score: score });
+    players.push({
+      name: playerName,
+      score: score,
+      quizzes: 1,
+    });
   }
-
-  players.sort((a, b) => b.score - a.score);
-
   localStorage.setItem("leaderboard", JSON.stringify(players));
 }
 
@@ -31,34 +33,57 @@ function displayLeaderboard() {
 
   topPlayers.forEach((player, index) => {
     const row = document.createElement("div");
-    row.classList.add("leaderboard-row");
+    row.className = "leaderboard-row";
     row.setAttribute("role", "row");
 
-    const values = [index + 1, player.name, `${player.score}/5`];
+    const rank = document.createElement("span");
+    rank.setAttribute("role", "cell");
+    rank.textContent = `#${index + 1}`;
 
-    values.forEach((value) => {
-      const cell = document.createElement("span");
-      cell.setAttribute("role", "cell");
-      cell.textContent = value;
-      row.appendChild(cell);
-    });
+    const playerCell = document.createElement("div");
+    playerCell.className = "table-player";
+    playerCell.setAttribute("role", "cell");
 
+    const avatar = document.createElement("span");
+    avatar.className = "table-avatar";
+    avatar.setAttribute("aria-hidden", "true");
+    const nameParts = player.name.trim().split(/\s+/);
+
+    avatar.textContent = (
+      nameParts.length > 1
+        ? nameParts[0][0] + nameParts[nameParts.length - 1][0]
+        : nameParts[0].slice(0, 2)
+    ).toUpperCase();
+
+    const details = document.createElement("div");
+    details.className = "table-player-details";
+
+    const name = document.createElement("span");
+    name.className = "table-player-name";
+    name.textContent = player.name;
+    details.appendChild(name);
+
+    if (player.handle) {
+      const handle = document.createElement("span");
+      handle.className = "table-player-handle";
+      handle.textContent = player.handle;
+      details.appendChild(handle);
+    }
+
+    playerCell.append(avatar, details);
+
+    const quizzes = document.createElement("span");
+    quizzes.setAttribute("role", "cell");
+    quizzes.textContent = player.quizzes ?? "—";
+
+    const score = document.createElement("span");
+    score.setAttribute("role", "cell");
+    score.textContent = `${player.score}/5`;
+
+    row.append(rank, playerCell, quizzes, score);
     leaderboardBody.appendChild(row);
   });
 }
-// Temporary example scores
-saveHighScore("BrainyBella", 5);
-saveHighScore("LogicLeo", 5);
-saveHighScore("CreativeCat", 4);
-saveHighScore("QuizMaster99", 4);
-saveHighScore("You", 3);
-saveHighScore("MindExplorer", 3);
-saveHighScore("ThinkTank", 2);
-saveHighScore("CuriousAlex", 2);
-saveHighScore("BrainBoost", 1);
-saveHighScore("QuizNewbie", 1);
-
-displayLeaderboard();
 
 const refreshButton = document.querySelector("#refresh-button");
 
@@ -66,4 +91,4 @@ if (refreshButton) {
   refreshButton.addEventListener("click", displayLeaderboard);
 }
 
-saveHighScore(playerName, score);
+displayLeaderboard();
