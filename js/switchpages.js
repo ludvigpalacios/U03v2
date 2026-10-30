@@ -9,7 +9,7 @@ const grabLogo = document.querySelector(".logo");
 grabHeader.addEventListener("keydown", (e)=>{
     if(e.key==="Enter"){
         e.preventDefault();
-        runAccountCreation();
+
     }
 })
 
@@ -26,6 +26,7 @@ grabHeader.addEventListener("click", (e) => {
 
 
 
+
     }
     if(e.target.matches("button.play-button") || e.target.closest("svg.brand-mark") || e.target.closest("span.logotext")){
         //Make it so that when I click back on play, I remove the "hide" class
@@ -33,6 +34,16 @@ grabHeader.addEventListener("click", (e) => {
         grabMain.classList.remove("hide");
         //console.log(grabiFrame);
         grabiFrame.classList.add("hide");
+
+                //When clicking logo, show Play as selected and diselected all other buttons (A bit unortoxod but it works)
+        const grabPlayButton = document.querySelector(".play-button");
+        const grabLeaderBoardButton=document.querySelector(".leaderboard-button");
+        const grabFriendsbutton=document.querySelector(".friends-button");
+
+        grabPlayButton.classList.add("selectedButton");
+        grabLeaderBoardButton.classList.remove("selectedButton");
+        grabFriendsbutton.classList.remove("selectedButton");
+
     }
 
 });
