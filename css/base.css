@@ -14,9 +14,13 @@
 
 
 body{
+    height:100%;
+    margin:0;
     box-sizing: border-box;
     display:flex;
     flex-direction:column;
+    flex:1;
+    min-height:100vh;
     
 }
 
