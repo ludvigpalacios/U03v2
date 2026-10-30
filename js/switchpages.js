@@ -3,6 +3,8 @@ const grabHeader = document.querySelector(".app-header");
 const grabMain = document.querySelector(".main-app");
 const grabiFrame = document.querySelector(".leaderboard-iframe");
 
+const grabLogo = document.querySelector(".logo");
+
 //Event listener
 grabHeader.addEventListener("keydown", (e)=>{
     if(e.key==="Enter"){
@@ -13,6 +15,8 @@ grabHeader.addEventListener("keydown", (e)=>{
 
 grabHeader.addEventListener("click", (e) => {
     e.preventDefault();
+    const svg = e.target.closest("svg.brand-mark");
+    //console.log(e.target.closest());
     if(e.target.matches("button.leaderboard-button")){
         //Hide the main
         //Removing onclick="window.location.href='leaderboard.html'"
@@ -23,10 +27,11 @@ grabHeader.addEventListener("click", (e) => {
 
 
     }
-    if(e.target.matches("button.play-button")){
+    if(e.target.matches("button.play-button") || e.target.closest("svg.brand-mark") || e.target.closest("span.logotext")){
         //Make it so that when I click back on play, I remove the "hide" class
+        //console.log("logo clicked");
         grabMain.classList.remove("hide");
-        console.log(grabiFrame);
+        //console.log(grabiFrame);
         grabiFrame.classList.add("hide");
     }
 
