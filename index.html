@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/createaccount.css" />
+    <link rel="stylesheet" href="css/iframe.css">
 
 </head>
 
@@ -31,12 +32,14 @@
         <span></span>
         <div class="topApp-selection-buttons">
             <button id="appSelectionButton" class="play-button selectedButton">Play</button>
-            <button onclick="window.location.href='leaderboard.html'" id="appSelectionButton"
-                class="leaderboard-button">Leaderboard</button>
+            <button id="appSelectionButton" class="leaderboard-button" target="Leaderboard-page">Leaderboard
+            </button>
             <button id="appSelectionButton" class="friends-button">Friends</button>
         </div>
         <button class="header-button" id="openLogin">Log in</button>
     </header>
+
+    <iframe class="leaderboard-iframe" name="Leaderboard-page" src="leaderboard.html" title="Leaderboard page" ></iframe>
     <main class="main-app">
         <div class="main-app-header">
             <p> 5 questions · 5 minutes</p>
@@ -62,7 +65,7 @@
 
         <div class="bottomApp-selection-buttons">
             <button id="appSelectionButton" class="selectedButton">Play</button>
-            <button id="appSelectionButton">Leaderboard</button>
+            <button href="leaderboard.html" id="appSelectionButton">Leaderboard</button>
             <button id="appSelectionButton">Friends</button>
         </div>
     </main>
@@ -182,6 +185,7 @@
     <script src="js/base.js" defer></script>
     <script src="js/createAccount.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/switchpages.js"></script>
 
 
 
