@@ -1,0 +1,300 @@
+/* Grundinställningar */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8ff;
+    color: #17152f;
+}
+
+/* Sidans innehåll */
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 90px 40px;
+}
+
+/* Rubriksektionen */
+.friends-section > p:first-child {
+    color: #68658e;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.friends-section h1 {
+    font-size: clamp(36px, 6vw, 76px);
+    letter-spacing: -3px;
+    margin: 12px 0;
+}
+
+.friends-section > p:last-child {
+    color: #68658e;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Connections */
+.connections-count {
+    text-align: right;
+    margin: 35px 0;
+    color: #201c50;
+}
+
+#friend-count {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.connections-count p {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #68658e;
+}
+
+/* Den stora vita rutan */
+.friends-card {
+    background-color: white;
+    border: 1px dashed #9992d8;
+    border-radius: 24px;
+    min-height: 390px;
+    padding: 60px 20px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Plustecknet */
+.plus-icon {
+    background-color: #e2e0ed;
+    color: #201c50;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+/* Text i rutan */
+.friends-card h2 {
+    font-size: 30px;
+    color: #201c50;
+    margin-bottom: 5px;
+}
+
+.friends-card p {
+    color: #68658e;
+    max-width: 450px;
+    line-height: 1.5;
+}
+
+/* Knappen */
+#login-button {
+    background-color: #201c50;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 17px 26px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+#login-button:hover {
+    background-color: #39346e;
+}
+
+#login-button:focus-visible {
+    outline: 3px solid #7368d8;
+    outline-offset: 4px;
+}
+
+/* Surfplatta */
+@media (max-width: 900px) {
+    main {
+        padding: 60px 25px;
+    }
+
+    .friends-section h1 {
+        letter-spacing: -2px;
+    }
+}
+
+/* Mobil */
+@media (max-width: 600px) {
+    main {
+        padding: 40px 20px;
+    }
+
+    .friends-section h1 {
+        letter-spacing: -1px;
+    }
+
+    .connections-count {
+        text-align: left;
+    }
+
+    .friends-card {
+        min-height: 350px;
+        padding: 40px 20px;
+    }
+
+    .friends-card h2 {
+        font-size: 24px;
+    }
+}
+
+/* Rubrik och connections */
+.friends-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 30px;
+}
+
+.connections-count {
+    text-align: left;
+    border-left: 1px solid #201c50;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.friends-card {
+    margin-top: 65px;
+}
+
+/* Surfplatta */
+@media (max-width: 900px) {
+    .friends-header {
+        grid-template-columns: 1fr;
+    }
+
+    .connections-count {
+        width: fit-content;
+    }
+}
+
+/* Mobil */
+@media (max-width: 600px) {
+    .friends-section h1 {
+        font-size: 38px;
+    }
+
+    .friends-card {
+        margin-top: 35px;
+    }
+}
+.site-header {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #dedce9;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #201c50;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #201c50;
+    color: white;
+    font-size: 27px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    background-color: #eeedf5;
+    border-radius: 40px;
+}
+
+.navbar a {
+    padding: 15px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #68658e;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.navbar a.active {
+    background-color: white;
+    color: #201c50;
+    box-shadow: 0 2px 8px #201c5015;
+}
+
+.nav-login {
+    justify-self: end;
+    background-color: transparent;
+    color: #201c50;
+    border: 1px solid #201c50;
+    border-radius: 30px;
+    padding: 13px 23px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.site-header a:focus-visible,
+.nav-login:focus-visible {
+    outline: 3px solid #7368d8;
+    outline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+    .site-header {
+        grid-template-columns: 1fr auto;
+        padding: 15px 25px;
+    }
+
+    .navbar {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: center;
+    }
+
+    .nav-login {
+        grid-column: 2;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 15px 20px;
+    }
+
+    .navbar a {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+}
