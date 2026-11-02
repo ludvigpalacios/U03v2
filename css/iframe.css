@@ -1,4 +1,4 @@
-.leaderboard-iframe, .quiz-iframe{
+.leaderboard-iframe, .quiz-iframe, .friends-iframe{
     /*Make the popup full page */
     width: 100vw;
     height: 100vh;
