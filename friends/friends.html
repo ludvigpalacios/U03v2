@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends | BrainRush</title>
+    <link rel="stylesheet" href="friends.css">
+</head>
+<body>
+<header class="site-header">
+    <a href="../index.html" class="logo">
+        <span class="logo-icon" aria-hidden="true">🧠</span>
+        <span>BrainRush</span>
+    </a>
+
+    <nav class="navbar" aria-label="Main navigation">
+        <a href="../index.html">Play</a>
+        <a href="../leaderboard/leaderboard.html">
+            Leaderboard
+        </a>
+        <a href="friends.html" class="active" aria-current="page">
+            Friends
+        </a>
+    </nav>
+
+    <button type="button" class="nav-login" id="nav-login-button">
+        Log in
+    </button>
+</header>
+<main>
+    <div class="friends-header">
+        <section class="friends-section">
+            <p>Your circle</p>
+            <h1>Think better together.</h1>
+            <p>
+                Connect with players, compare scores,
+                and find your next rival.
+            </p>
+        </section>
+
+        <div class="connections-count">
+            <span id="friend-count">0</span>
+            <p>CONNECTIONS</p>
+        </div>
+    </div>
+
+    <section class="connections-section">
+        <div class="friends-card">
+            <div class="plus-icon" aria-hidden="true">+</div>
+
+            <h2>Log in to build your circle</h2>
+
+            <p>
+                Your connections and friends leaderboard
+                will stay with your account.
+            </p>
+
+            <button type="button" id="login-button">
+                Log in or create account
+            </button>
+        </div>
+    </section>
+</main>
+</body>
+</html>
