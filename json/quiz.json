@@ -1,0 +1,264 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "category": "logical",
+      "question": "What number comes next in the pattern: 2, 4, 8, 16, ?",
+      "answers": [
+        "18",
+        "24",
+        "32",
+        "20"
+      ],
+      "correctIndex": 2,
+      "explanation": "Each number doubles: 16 x 2 = 32."
+    },
+    {
+      "id": 2,
+      "category": "logical",
+      "question": "If all roses are flowers and some flowers fade quickly, which statement must be true?",
+      "answers": [
+        "All roses fade quickly",
+        "Some roses may fade quickly",
+        "No roses fade quickly",
+        "All flowers are roses"
+      ],
+      "correctIndex": 1,
+      "explanation": "Only some flowers fade quickly, so some roses may be among them, but it is not guaranteed for all roses."
+    },
+    {
+      "id": 3,
+      "category": "logical",
+      "question": "A train leaves Stockholm at 10:00 and travels for 2 hours and 45 minutes. What time does it arrive?",
+      "answers": [
+        "12:35",
+        "12:45",
+        "13:15",
+        "12:15"
+      ],
+      "correctIndex": 1,
+      "explanation": "10:00 plus 2 hours is 12:00, plus 45 minutes is 12:45."
+    },
+    {
+      "id": 4,
+      "category": "logical",
+      "question": "Which word does not belong: apple, banana, carrot, cherry?",
+      "answers": [
+        "Apple",
+        "Banana",
+        "Carrot",
+        "Cherry"
+      ],
+      "correctIndex": 2,
+      "explanation": "Carrot is a vegetable, while the others are fruits."
+    },
+    {
+      "id": 5,
+      "category": "logical",
+      "question": "Complete the sequence: 3, 6, 11, 18, ?",
+      "answers": [
+        "25",
+        "27",
+        "29",
+        "24"
+      ],
+      "correctIndex": 1,
+      "explanation": "The differences increase by 2 each time: +3, +5, +7, +9. So 18 + 9 = 27."
+    },
+    {
+      "id": 6,
+      "category": "logical",
+      "question": "If five machines make five items in five minutes, how long would 100 machines take to make 100 items?",
+      "answers": [
+        "100 minutes",
+        "20 minutes",
+        "5 minutes",
+        "1 minute"
+      ],
+      "correctIndex": 2,
+      "explanation": "Each machine makes one item in five minutes, so 100 machines make 100 items in five minutes."
+    },
+    {
+      "id": 7,
+      "category": "logical",
+      "question": "Which shape completes the pattern: circle, square, triangle, circle, square, ?",
+      "answers": [
+        "Circle",
+        "Triangle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctIndex": 1,
+      "explanation": "The repeating pattern is circle, square, triangle."
+    },
+    {
+      "id": 8,
+      "category": "logical",
+      "question": "A shop gives 20% off a 500 kr jacket. What is the new price?",
+      "answers": [
+        "400 kr",
+        "420 kr",
+        "450 kr",
+        "480 kr"
+      ],
+      "correctIndex": 0,
+      "explanation": "20% of 500 kr is 100 kr, so 500 - 100 = 400 kr."
+    },
+    {
+      "id": 9,
+      "category": "logical",
+      "question": "Which number is the odd one out: 9, 16, 25, 30, 36?",
+      "answers": [
+        "9",
+        "16",
+        "25",
+        "30"
+      ],
+      "correctIndex": 3,
+      "explanation": "9, 16, 25, and 36 are square numbers. 30 is not."
+    },
+    {
+      "id": 10,
+      "category": "logical",
+      "question": "If today is Wednesday, what day will it be in 17 days?",
+      "answers": [
+        "Friday",
+        "Saturday",
+        "Sunday",
+        "Monday"
+      ],
+      "correctIndex": 1,
+      "explanation": "17 days is two full weeks plus 3 days. Wednesday plus 3 days is Saturday."
+    },
+    {
+      "id": 11,
+      "category": "creative",
+      "question": "A scientist discovers a door at the bottom of the ocean that opens only during a thunderstorm. What is the best opening for a story?",
+      "answers": [
+        "The door had been waiting for the storm.",
+        "The ocean was cold and deep.",
+        "Scientists often explore the sea.",
+        "Thunderstorms can be dangerous."
+      ],
+      "correctIndex": 0,
+      "explanation": "It creates mystery, tension, and immediately makes the reader want to know what is behind the door."
+    },
+    {
+      "id": 12,
+      "category": "creative",
+      "question": "Which idea is the most imaginative use for an old railway carriage?",
+      "answers": [
+        "Turn it into a mobile library",
+        "Leave it at the station",
+        "Sell it for scrap metal",
+        "Paint it a different colour"
+      ],
+      "correctIndex": 0,
+      "explanation": "A mobile library gives the carriage a new purpose and creates an interesting story setting."
+    },
+    {
+      "id": 13,
+      "category": "creative",
+      "question": "Your character finds a note that says: “Do not trust the person who gave you this.” What should happen next for the strongest story?",
+      "answers": [
+        "The character immediately throws the note away and nothing happens.",
+        "The character tries to find out who wrote the note.",
+        "The character forgets about the note.",
+        "The character reads the note again but ignores it."
+      ],
+      "correctIndex": 1,
+      "explanation": "Investigating the note creates conflict, suspense, and a reason for the story to move forward."
+    },
+    {
+      "id": 14,
+      "category": "creative",
+      "question": "Which title fits a story about a city where memories can be traded?",
+      "answers": [
+        "The Memory Market",
+        "A Normal Tuesday",
+        "The Bus Timetable",
+        "Rain in the City"
+      ],
+      "correctIndex": 0,
+      "explanation": "The title directly suggests the central imaginative idea of the story."
+    },
+    {
+      "id": 15,
+      "category": "creative",
+      "question": "A robot begins dreaming about the ocean, although it has never seen one. What is the most interesting explanation?",
+      "answers": [
+        "Its creator implanted memories from someone else.",
+        "Robots cannot have thoughts.",
+        "It needs a software update.",
+        "The ocean is made of water."
+      ],
+      "correctIndex": 0,
+      "explanation": "This creates a mystery about identity, memory, and the robot's origin."
+    },
+    {
+      "id": 16,
+      "category": "creative",
+      "question": "Which ending is most surprising but still makes sense for a story about a missing cat?",
+      "answers": [
+        "The cat had been living in the neighbour’s greenhouse and had kittens.",
+        "The cat disappeared forever with no explanation.",
+        "The family moved away.",
+        "The cat was never mentioned again."
+      ],
+      "correctIndex": 0,
+      "explanation": "It is unexpected, but it explains where the cat was and gives the story an emotional payoff."
+    },
+    {
+      "id": 17,
+      "category": "creative",
+      "question": "Which setting would create the strongest contrast for a happy festival?",
+      "answers": [
+        "A quiet abandoned space station",
+        "A sunny park",
+        "A busy market square",
+        "A school gymnasium"
+      ],
+      "correctIndex": 0,
+      "explanation": "A happy festival in an abandoned space station creates an unusual contrast and makes the setting more memorable."
+    },
+    {
+      "id": 18,
+      "category": "creative",
+      "question": "Which character flaw would create the most interesting conflict for a brilliant inventor?",
+      "answers": [
+        "They cannot admit when they are wrong",
+        "They like coffee",
+        "They own too many tools",
+        "They enjoy reading"
+      ],
+      "correctIndex": 0,
+      "explanation": "Refusing to admit mistakes can lead to bigger problems and gives the character room to grow."
+    },
+    {
+      "id": 19,
+      "category": "creative",
+      "question": "A map shows a road that changes location every night. What is the best next story question?",
+      "answers": [
+        "Who or what moves the road, and why?",
+        "What material is the road made of?",
+        "How wide is the road?",
+        "Is the road paved?"
+      ],
+      "correctIndex": 0,
+      "explanation": "It focuses on the central mystery and gives the story a clear direction."
+    },
+    {
+      "id": 20,
+      "category": "creative",
+      "question": "Which opening line creates the most curiosity?",
+      "answers": [
+        "On the day the moon stopped moving, everyone pretended nothing had changed.",
+        "The weather was nice yesterday.",
+        "I woke up and ate breakfast.",
+        "The city had many buildings."
+      ],
+      "correctIndex": 0,
+      "explanation": "It introduces an impossible event immediately and makes the reader ask what will happen next."
+    }
+  ]
+}

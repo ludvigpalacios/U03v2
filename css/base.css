@@ -14,9 +14,13 @@
 
 
 body{
+    height:100%;
+    margin:0;
     box-sizing: border-box;
     display:flex;
     flex-direction:column;
+    flex:1;
+    min-height:100vh;
     
 }
 
@@ -198,6 +202,19 @@ button{
 
 #createAccount{
     color:inherit;
+}
+
+.logo{
+    display:flex;
+
+}
+
+.logotext {
+  font-size: 24px;
+  color: #1e1b4b;
+  font-weight: 600;
+  align-self:center;
+  margin-left:1rem;
 }
 
 @media (min-width:700px){
