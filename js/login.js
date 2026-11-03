@@ -17,6 +17,7 @@ const confetti = document.querySelectorAll(".gifConfetti");
 
 const adminContainer = document.querySelector(".adminContainer");
 
+let currentUser;
 
 //Check for admin
 let Admin = false; 
@@ -64,7 +65,8 @@ function checkForAccount (Account, email, password){
             addConfetti();
 
             //return user.length;
-            return;
+            currentUser=user.username;
+            return currentUser;
 
         }else{
             //Log out that account was not found!
