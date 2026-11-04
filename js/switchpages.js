@@ -20,7 +20,7 @@ grabHeader.addEventListener("keydown", (e)=>{
 })
 
 window.addEventListener("click", (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     console.log(e);
     if(e.target.matches("button.leaderboard-button")){
         //Hide the main

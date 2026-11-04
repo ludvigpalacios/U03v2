@@ -15,6 +15,10 @@ const openCreateAccount = document.querySelector("#account-create-page")
 const closeCreateAccount = document.querySelectorAll("#closeCreateAccount");
 
 
+//Import timer from base.js
+
+
+
 //Listen for a click for the login button 
 openLogin.addEventListener("click", (e) => {
     /*show page*/
@@ -90,7 +94,12 @@ window.addEventListener("click", (e)=> {
     //Grab button the clicked selected button
 
     //When any of the top selection buttons are clicked, show the second page 
+
+    //Start timer when any of the quiz button are clicked
+
+    //Import first från js/quiz/timer.js
     
+
 
 })
 
