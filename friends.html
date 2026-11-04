@@ -1,38 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Friends | BrainRush</title>
+
     <link rel="stylesheet" href="css/friends/friends.css">
+    <script src="css/friends/friends.js" defer></script>
 </head>
-<script src="css/friends/friends.js" defer></script>
+
 <body>
-<header class="site-header">
-   <script src="css/friends/friends.js" defer></script>
-        <span class="logo-icon" aria-hidden="true">🧠</span>
-        <span>BrainRush</span>
-    </a>
 
-    <nav class="navbar" aria-label="Main navigation">
-       <a href="index.html">Play</a>
-       <a href="leaderboard.html"></a>
-            Leaderboard
-        </a>
-        <a href="friends.html" class="active" aria-current="page">
-            Friends
-        </a>
-    </nav>
-
-    <button type="button" class="nav-login" id="nav-login-button">
-        Log in
-    </button>
-</header>
 <main>
     <div class="friends-header">
         <section class="friends-section">
             <p>Your circle</p>
+
             <h1>Think better together.</h1>
+
             <p>
                 Connect with players, compare scores,
                 and find your next rival.
@@ -45,6 +33,24 @@
         </div>
     </div>
 
+    <!-- Connected friends leaderboard -->
+    <section class="connected-section">
+        <h2>Your connections</h2>
+
+        <p>
+            Players you've connected with,
+            ranked by score.
+        </p>
+
+        <div
+            id="connected-friends-list"
+            class="connected-friends-list"
+        >
+            <p>No friends connected yet.</p>
+        </div>
+    </section>
+
+    <!-- Login section -->
     <section class="connections-section">
         <div class="friends-card">
             <div class="plus-icon" aria-hidden="true">+</div>
@@ -61,13 +67,20 @@
             </button>
         </div>
     </section>
+
+    <!-- Players section -->
     <section class="players-section">
         <h2>Friendly competition</h2>
-        <p>Connect with players and compare scores.</p>
+
+        <p>
+            Connect with players and compare scores.
+        </p>
 
         <h2>People you may want to challenge</h2>
+
         <div id="friends-list" class="friends-grid"></div>
     </section>
 </main>
+
 </body>
 </html>

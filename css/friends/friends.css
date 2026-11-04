@@ -373,3 +373,43 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
+/* Friends Leaderboard */
+
+.friends-leaderboard {
+    margin-top: 50px;
+    padding: 30px;
+    background: white;
+    border: 1px solid #e5e5ef;
+    border-radius: 20px;
+}
+
+.friends-leaderboard h2 {
+    color: #201c50;
+    margin-bottom: 10px;
+}
+
+.friends-leaderboard > p {
+    color: #68658e;
+}
+
+.leaderboard-row {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr auto;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    margin-top: 12px;
+    border-radius: 12px;
+    background: #f8f8ff;
+    color: #201c50;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .leaderboard-row {
+        grid-template-columns: 40px 1fr;
+        gap: 8px;
+    }
+}
+
