@@ -7,6 +7,9 @@ console.log("timer script loaded");
 let timeLeft= 300; // 300 seconds = 5 minutes
 let timer;
 
+resetTimer();
+
+
 
 
 function resetTimer(){
@@ -38,6 +41,3 @@ function resetTimer(){
 }
 
 
-export function resetTimer(){
-
-};

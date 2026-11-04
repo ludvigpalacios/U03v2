@@ -16,7 +16,7 @@ const closeCreateAccount = document.querySelectorAll("#closeCreateAccount");
 
 
 //Import timer from base.js
-import {resetTimer} from ".js/quiz/timer.js" 
+
 
 
 //Listen for a click for the login button 
@@ -100,10 +100,6 @@ window.addEventListener("click", (e)=> {
     //Import first från js/quiz/timer.js
     
 
-    if(e.target.closest("button.app-button")){
-        console.log("Timer reset!");
-        resetTimer();
-    }
 
 })
 
