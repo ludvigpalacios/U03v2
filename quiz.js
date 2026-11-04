@@ -42,4 +42,5 @@ async function startQuiz(category) {
 
 // 5. Show one question with its answer buttons
 function showQuestion() {
-  const { question, answers, type, word, textColour } =
+  const { question, answers, type, word, textColour };
+}
