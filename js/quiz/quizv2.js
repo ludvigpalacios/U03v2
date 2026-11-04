@@ -86,6 +86,12 @@ function inputListener(data){
         const explanation=data.questions[atQuestion].explanation;
         console.log("inputListener loaded", atQuestion);
 
+        //Start timer when app-button is clicked
+        if(e.target.closest("button.app-button")){
+            console.log("Timer reset!");
+            resetTimer();
+        }
+
 
         const button=e.target.closest("button.quiz-button");
         const nextButton=e.target.closest("button.next-button");
