@@ -6,7 +6,28 @@
     <title>Friends | BrainRush</title>
     <link rel="stylesheet" href="css/friends/friends.css">
 </head>
+<script src="css/friends/friends.js" defer></script>
 <body>
+<header class="site-header">
+   <script src="css/friends/friends.js" defer></script>
+        <span class="logo-icon" aria-hidden="true">🧠</span>
+        <span>BrainRush</span>
+    </a>
+
+    <nav class="navbar" aria-label="Main navigation">
+       <a href="index.html">Play</a>
+       <a href="leaderboard.html"></a>
+            Leaderboard
+        </a>
+        <a href="friends.html" class="active" aria-current="page">
+            Friends
+        </a>
+    </nav>
+
+    <button type="button" class="nav-login" id="nav-login-button">
+        Log in
+    </button>
+</header>
 <main>
     <div class="friends-header">
         <section class="friends-section">
@@ -39,6 +60,13 @@
                 Log in or create account
             </button>
         </div>
+    </section>
+    <section class="players-section">
+        <h2>Friendly competition</h2>
+        <p>Connect with players and compare scores.</p>
+
+        <h2>People you may want to challenge</h2>
+        <div id="friends-list" class="friends-grid"></div>
     </section>
 </main>
 </body>
