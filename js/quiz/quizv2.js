@@ -7,8 +7,6 @@ const grabExplanationContainer = document.querySelector("#explanation-container"
 
 const grabNextButton = document.querySelector(".next-button");
 
-
-
 //Fetcha fram objects från en json med frågor och svar
 console.log("quizv2 js loaded");
 //Async
@@ -59,7 +57,6 @@ async function fetchQUIZ (){
 
 
 
-
 //Load the questions onto the page
 function replaceContents(data, atQuestion){
     //console.log(data.questions[atQuestion].question);
@@ -86,11 +83,6 @@ function inputListener(data){
         const explanation=data.questions[atQuestion].explanation;
         console.log("inputListener loaded", atQuestion);
 
-        //Start timer when app-button is clicked
-        if(e.target.closest("button.app-button")){
-            console.log("Timer reset!");
-            resetTimer();
-        }
 
 
         const button=e.target.closest("button.quiz-button");
@@ -164,4 +156,5 @@ function updateExplanation(QuestionExplanation){
     grabQuestionContainer.textContent=QuestionExplanation;
 
 }
+
 
