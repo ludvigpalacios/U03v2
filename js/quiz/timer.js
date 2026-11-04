@@ -8,7 +8,6 @@ let timeLeft= 300; // 300 seconds = 5 minutes
 let timer;
 
 
-resetTimer();
 
 function resetTimer(){
     clearInterval(timer);
@@ -37,3 +36,8 @@ function resetTimer(){
     }, 10); //Update to 1000 when finished
 
 }
+
+
+export function resetTimer(){
+
+};
