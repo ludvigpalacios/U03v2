@@ -14,39 +14,17 @@
         <section class="leaderboard-intro">
             <div>
                 <p class="players">All players</p>
-                <h1>Global Leaderboard</h1>
-                <p class="intro">Top scores from five-question sprints.</p>
+                <h1>Leaderboard</h1>
+                <p class="intro">Example players and real quiz results saved on this device.</p>
             </div>
             <div class="season">
                 <p>Current Season</p>
                 <strong>Spring Sprint</strong>
             </div>
         </section>
-        <section class="podium" aria-label="Top three players">
-            <article class="podium-card second-place">
-                <span class="rank-badge" aria-label="Rank 2">2</span>
-                <div class="player-avatar" aria-hidden="true">TB</div>
-                <h2>Theo Brooks</h2>
-                <p class="player-handle">@theologic</p>
-                <p class="player-points">542 pts</p>
-            </article>
-
-            <article class="podium-card first-place">
-                <span class="rank-badge" aria-label="Rank 1">1</span>
-                <div class="player-avatar" aria-hidden="true">MC</div>
-                <h2>Maya Chen</h2>
-                <p class="player-handle">@mayamakes</p>
-                <p class="player-points">558 pts</p>
-            </article>
-
-            <article class="podium-card third-place">
-                <span class="rank-badge" aria-label="Rank 3">3</span>
-                <div class="player-avatar" aria-hidden="true">NA</div>
-                <h2>Nora Ali</h2>
-                <p class="player-handle">@norathinks</p>
-                <p class="player-points">527 pts</p>
-            </article>
-        </section>
+        <section id="leaderboard-podium" class="podium" aria-label="Top three players"></section>
+        <p id="leaderboard-empty" class="leaderboard-message" hidden>No saved scores yet. Finish a quiz to appear here.</p>
+        <p id="leaderboard-status" class="leaderboard-message" role="status"></p>
 
         <div class="leaderboard" role="table" aria-label="Top 10 players">
             <div class="leaderboard-row leaderboard-heading" role="row">
