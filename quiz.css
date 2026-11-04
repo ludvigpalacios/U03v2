@@ -1,0 +1,92 @@
+/* quiz.css – styling for the quiz */
+
+body {
+    margin: 0;
+    font-family: "DM Sans", sans-serif;
+    color: #111021;
+    background-color: white;
+}
+
+main {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+p {
+    color: #68658b;
+}
+
+.categories {
+    display: grid;
+    gap: 1rem;
+}
+
+button {
+    padding: 1rem;
+    font: inherit;
+    font-size: 1rem;
+    color: #111021;
+    background-color: white;
+    border: 1px solid #c9c8d6;
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
+
+/* Visible focus for keyboard users */
+button:focus-visible {
+    outline: 3px solid #4f46e5;
+    outline-offset: 3px;
+}
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+#quiz-timer {
+    font-weight: bold;
+    color: #111021;
+}
+
+#quiz-word {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#quiz-answers {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+}
+
+#quiz-answers button {
+    width: 100%;
+    text-align: left;
+}
+
+/* Right and wrong answers */
+.correct {
+    background-color: #ecfdf3;
+    border: 2px solid #067647;
+}
+
+.wrong {
+    background-color: #fef3f2;
+    border: 2px solid #b42318;
+}
+
+.feedback-correct {
+    color: #067647;
+    font-weight: bold;
+}
+
+.feedback-wrong {
+    color: #b42318;
+    font-weight: bold;
+}
+
+/* Breakpoint 1: small phones */
+@media (max-width: 400px) {
+    h2 { font-size:

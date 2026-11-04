@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="eng">
+</html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainRush - Quiz</title>
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+
+<body>
+          
+    <main class="quiz-main">
+        <article class="quiz-time">
+            <ol class="quiz-stage-list">
+                <h1>5 minutes for all questions</h1>
+                <span>LOGICAL CHALLENGE QUESTION <span class="current-question">1</span> OF 5</span> </span>
+            </ol>
+            <ol class="question-list">
+                <h1 class="question-container">Q1: What ocean is the largest?</h1>                  
+            </ol>
+            <ol class="clock-list">
+                <svg width="100" height="100" class="time-container">
+                    <!--We have to change the time container -->
+                    <circle cx="50" cy="50" r="40" fill="grey" stroke="black" stroke-width="2"> </circle>
+                    <text
+                        x="50" 
+                        y="50"
+                        text-anchor="middle"
+                        dominant-baseline="middle"
+                        fill="white"
+                        font-size="1rem"
+                        font-family="Arial, sans-serif"
+                        id="text-time-container"
+
+                    >TIME</text>
+                </svg>
+            </ol>
+        </article>
+        <article class="quiz-selection">
+            <span>A:</span>
+            <button class="quiz-button">Atlantic Ocean</button>
+        </article>
+        <article class="quiz-selection">
+            <span>B:</span>
+            <button class="quiz-button">Indian Ocean</button>
+        </article>
+        <article class="quiz-selection">
+            <span>C:</span>
+            <button class="quiz-button">Pacific Ocean</button>
+        </article>
+        <article class="quiz-selection">
+            <span>D:</span>
+            <button class="quiz-button">Artic Ocean</button class="quiz-button">            
+        </article>
+
+        <!--Answer-->
+        <div class="timer" aria-label="clock">
+        
+        </div>
+        <p id="explanation-container">RIGHT ANSWER WILL BE HIGHLIGHTED IN GREEN AFTER YOU HAVE CLICKED</p>
+        <article>
+            <button class="next-button hide">Click to continue</button class="quiz-button">            
+        </article>
+
+
+    </main>
+    
+        <script src="js/quiz/quizv2.js" defer></script>
+        <script src="js/quiz/timer.js" defer></script>
+        <script src="js/quiz/grabAccount.js" defer></script>
+        
+
+ </body>

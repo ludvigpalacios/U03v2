@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "category": "logical",
+    "type": "colour",
+    "question": "What colour is this word written in?",
+    "word": "RED",
+    "textColour": "#1d4ed8",
+    "answers": ["Red", "Blue", "Green", "Purple"],
+    "correctIndex": 1
+  },
+  {
+    "id": 2,
+    "category": "logical",
+    "type": "text",
+    "question": "Unscramble the word: E L P P A",
+    "answers": ["Apple", "Paper", "Plane", "Pearl"],
+    "correctIndex": 0
+  },
+  {
+    "id": 3,
+    "category": "logical",
+    "type": "text",
+    "question": "What is the average of 2, 4 and 9?",
+    "answers": ["4", "5", "6", "15"],
+    "correctIndex": 1
+  },
+  {
+    "id": 4,
+    "category": "logical",
+    "type": "text",
+    "question": "What comes next: 3, 6, 12, 24, ?",
+    "answers": ["30", "36", "48", "72"],
+    "correctIndex": 2
+  },
+  {
+    "id": 5,
+    "category": "logical",
+    "type": "text",
+    "question": "Which one does not belong: square, triangle, circle, cube?",
+    "answers": ["Square", "Triangle", "Circle", "Cube"],
+    "correctIndex": 3
+  },
+  {
+    "id": 6,
+    "category": "creative",
+    "type": "text",
+    "question": "What has keys but can't open any locks?",
+    "answers": ["A map", "A piano", "A door", "A wallet"],
+    "correctIndex": 1

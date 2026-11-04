@@ -1,33 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainRush – Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
 </head>
-
-
 <body>
-    <div>
-        <h1>5 minutes for all questions</h1>
-        <span>LOGICAL CHALLENGE QUESTION 1 OF 5</span>
-    </div>
-    
-    <h1>Q1: What ocean is the largest?</h1>
-    <div>
-        <span>A:</span>
-        <button>Atlantic Ocean</button>
-        <span>B:</span>
-        <button>Indian Ocean</button>
-        <span>C:</span>
-        <button>Pacific Ocean</button>
-        <span>D:</span>
-        <button>Artic Ocean</button>
-        
-    </div>
+    <main>
+        <!-- Start: choose a category -->
+        <section id="start-view">
+            <h1>Choose your challenge</h1>
+            <p>5 questions · 10 seconds each · 3 tries</p>
+            <div class="categories">
+                <button type="button" class="category-button" data-category="logical">Logical</button>
+                <button type="button" class="category-button" data-category="creative">Creative</button>
+            </div>
+        </section>
 
-    <div class="timer" aria-label="clock">
-        
-        <time>HH:MM</time>
-    </div>
+        <!-- Quiz: one question at a time -->
+        <section id="quiz-view" hidden>
+            <div class="quiz-top">
+                <p id="quiz-progress"></p>
+                <p>Time left: <span id="quiz-timer">10 s</span></p>
+            </div>
+            <h2 id="quiz-question" tabindex="-1"></h2>
+            <p id="quiz-word"></p>
+            <ul id="quiz-answers"></ul>
+            <p id="quiz-feedback" aria-live="polite"></p>
+        </section>
 
-    <p>RIGHT ANSWER WILL BE HIGHLIGHTED IN GREEN AFTER YOU HAVE CLICKED</p>
+        <!-- Result -->
+        <section id="result-view" hidden>
+            <h2 id="result-text" tabindex="-1"></h2>
+            <button type="button" id="play-again">Back to start</button>
+        </section>
+    </main>
 
-    <script src="js/quiz/quizv2.js" defer></script>
+    <script type="module" src="quiz.js"></script>
 </body>
+</html>
+
