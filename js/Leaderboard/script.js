@@ -16,14 +16,17 @@ function textElement(tag, text, className) {
 
 function getInitials(name) {
   const parts = name.trim().split(/\s+/);
-  return (parts.length > 1
-    ? parts[0][0] + parts[parts.length - 1][0]
-    : parts[0].slice(0, 2)).toUpperCase();
+  return (
+    parts.length > 1
+      ? parts[0][0] + parts[parts.length - 1][0]
+      : parts[0].slice(0, 2)
+  ).toUpperCase();
 }
 
 function playerDescription(player) {
   return [player.handle, player.isExample ? "Example player" : ""]
-    .filter(Boolean).join(" · ");
+    .filter(Boolean)
+    .join(" · ");
 }
 
 function createRow(player, index) {
@@ -40,12 +43,14 @@ function createRow(player, index) {
   details.className = "table-player-details";
   details.append(textElement("span", player.name, "table-player-name"));
   const description = playerDescription(player);
-  if (description) details.append(textElement("span", description, "table-player-handle"));
+  if (description)
+    details.append(textElement("span", description, "table-player-handle"));
   playerCell.append(avatar, details);
 
   const quizzes = textElement("span", player.quizzes);
   const score = textElement("span", `${player.score} pts`);
-  for (const cell of [rank, playerCell, quizzes, score]) cell.setAttribute("role", "cell");
+  for (const cell of [rank, playerCell, quizzes, score])
+    cell.setAttribute("role", "cell");
   row.append(rank, playerCell, quizzes, score);
   return row;
 }
@@ -60,14 +65,24 @@ function renderPodium(players) {
     card.className = `podium-card ${["first", "second", "third"][index]}-place`;
     const badge = textElement("span", index + 1, "rank-badge");
     badge.setAttribute("aria-hidden", "true");
-    const avatar = textElement("div", getInitials(player.name), "player-avatar");
+    const avatar = textElement(
+      "div",
+      getInitials(player.name),
+      "player-avatar",
+    );
     avatar.setAttribute("aria-hidden", "true");
     const heading = document.createElement("h2");
-    heading.append(textElement("span", `Rank ${index + 1}: `, "visually-hidden"));
+    heading.append(
+      textElement("span", `Rank ${index + 1}: `, "visually-hidden"),
+    );
     heading.append(textElement("span", player.name));
-    card.append(badge, avatar, heading,
+    card.append(
+      badge,
+      avatar,
+      heading,
       textElement("p", playerDescription(player), "player-handle"),
-      textElement("p", `${player.score} pts`, "player-points"));
+      textElement("p", `${player.score} pts`, "player-points"),
+    );
     podium.append(card);
   }
 }
@@ -92,12 +107,16 @@ window.addEventListener("pageshow", displayLeaderboard);
 displayLeaderboard();
 
 try {
-  const response = await fetch(new URL("../../json/leaderboard.json", import.meta.url));
+  const response = await fetch(
+    new URL("../../json/leaderboard.json", import.meta.url),
+  );
   if (!response.ok) throw new Error("Could not load example players.");
   const data = await response.json();
-  if (!Array.isArray(data)) throw new Error("Example players must be an array.");
+  if (!Array.isArray(data))
+    throw new Error("Example players must be an array.");
   examplePlayers = data;
 } catch {
-  statusMessage.textContent = "Example scores could not be loaded. Your saved results are still shown.";
+  statusMessage.textContent =
+    "Example scores could not be loaded. Your saved results are still shown.";
 }
 displayLeaderboard();

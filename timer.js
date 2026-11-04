@@ -1,5 +1,3 @@
-// timer.js – counts down the time for each question
-
 let intervalId = null;
 
 export function startTimer(seconds, onTick, onTimeUp) {
