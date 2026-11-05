@@ -13,6 +13,18 @@ const feedback = document.querySelector("#quiz-feedback");
 const nextButton = document.querySelector("#next-button");
 const timerText = document.querySelector("#quiz-timer");
 
+const scoreCount = document.querySelector("#score-count");
+const answeredCount = document.querySelector("#answered-count");
+
+const resultCategory = document.querySelector("#result-category");
+const resultFraction = document.querySelector("#result-fraction");
+const resultPercentage = document.querySelector("#result-percentage");
+const resultAnswered = document.querySelector("#result-answered");
+const resultCorrect = document.querySelector("#result-correct");
+const resultWrong = document.querySelector("#result-wrong");
+const resultPoints = document.querySelector("#result-points");
+const playAgain = document.querySelector("#play-again");
+
 let questions = [];
 let currentIndex = 0;
 let correctAnswers = 0;
@@ -24,43 +36,119 @@ let answered = false;
 let currentCategory = "";
 
 const questionBank = {
-  general: [
-    { question: "What is the capital of France?", answers: ["Paris", "London", "Rome", "Berlin"], correct: 0 },
-    { question: "How many continents are there?", answers: ["5", "6", "7", "8"], correct: 2 },
-    { question: "Which planet is known as the Red Planet?", answers: ["Venus", "Mars", "Jupiter", "Saturn"], correct: 1 },
-    { question: "What is the largest ocean?", answers: ["Atlantic", "Indian", "Pacific", "Arctic"], correct: 2 },
-    { question: "How many days are in a leap year?", answers: ["364", "365", "366", "367"], correct: 2 }
+  logical: [
+    {
+      question: "What comes next? 2, 4, 8, 16, ...",
+      answers: ["24", "30", "32", "36"],
+      correct: 2
+    },
+    {
+      question: "If all cats are animals, which statement is true?",
+      answers: [
+        "All animals are cats",
+        "All cats are animals",
+        "No cats are animals",
+        "All cats are dogs"
+      ],
+      correct: 1
+    },
+    {
+      question: "What is 15 + 27?",
+      answers: ["40", "42", "44", "46"],
+      correct: 1
+    },
+    {
+      question: "Which number does not belong?",
+      answers: ["2", "4", "7", "8"],
+      correct: 2
+    },
+    {
+      question: "What comes next? 1, 1, 2, 3, 5, ...",
+      answers: ["6", "7", "8", "10"],
+      correct: 2
+    },
+    {
+      question: "If 5 pencils cost $10, how much do 3 cost?",
+      answers: ["$4", "$5", "$6", "$8"],
+      correct: 2
+    },
+    {
+      question: "What is half of 90?",
+      answers: ["35", "40", "45", "50"],
+      correct: 2
+    },
+    {
+      question: "Which shape has exactly three sides?",
+      answers: ["Square", "Triangle", "Circle", "Pentagon"],
+      correct: 1
+    },
+    {
+      question: "What comes next? 3, 6, 9, 12, ...",
+      answers: ["13", "14", "15", "18"],
+      correct: 2
+    },
+    {
+      question: "If today is Monday, what day is it in 3 days?",
+      answers: ["Tuesday", "Wednesday", "Thursday", "Friday"],
+      correct: 2
+    }
   ],
-  science: [
-    { question: "What is H2O?", answers: ["Oxygen", "Water", "Hydrogen", "Salt"], correct: 1 },
-    { question: "Which planet is closest to the Sun?", answers: ["Earth", "Venus", "Mercury", "Mars"], correct: 2 },
-    { question: "What gas do plants absorb?", answers: ["Oxygen", "Nitrogen", "Carbon dioxide", "Helium"], correct: 2 },
-    { question: "How many bones are in an adult human body?", answers: ["206", "208", "210", "212"], correct: 0 },
-    { question: "What force keeps us on Earth?", answers: ["Magnetism", "Gravity", "Friction", "Electricity"], correct: 1 }
-  ],
-  history: [
-    { question: "In which year did World War II end?", answers: ["1942", "1945", "1948", "1950"], correct: 1 },
-    { question: "Who was the first US president?", answers: ["Lincoln", "Washington", "Jefferson", "Adams"], correct: 1 },
-    { question: "Where were the pyramids of Giza built?", answers: ["Greece", "Egypt", "Italy", "Mexico"], correct: 1 },
-    { question: "In which year did the Berlin Wall fall?", answers: ["1987", "1988", "1989", "1991"], correct: 2 },
-    { question: "Which civilization built the Colosseum?", answers: ["Greek", "Roman", "Mayan", "Egyptian"], correct: 1 }
-  ],
-  sports: [
-    { question: "How many players are on a football team on the field?", answers: ["9", "10", "11", "12"], correct: 2 },
-    { question: "How often are the Summer Olympics held?", answers: ["2 years", "3 years", "4 years", "5 years"], correct: 2 },
-    { question: "Which sport uses a shuttlecock?", answers: ["Tennis", "Badminton", "Squash", "Golf"], correct: 1 },
-    { question: "How many points is a basketball free throw worth?", answers: ["1", "2", "3", "4"], correct: 0 },
-    { question: "Which country won the 2022 FIFA World Cup?", answers: ["France", "Brazil", "Argentina", "Spain"], correct: 2 }
-  ],
-  geography: [
-    { question: "Which is the largest continent?", answers: ["Africa", "Europe", "Asia", "Australia"], correct: 2 },
-    { question: "What is the capital of Sweden?", answers: ["Oslo", "Stockholm", "Copenhagen", "Helsinki"], correct: 1 },
-    { question: "Which country has the city of Tokyo?", answers: ["China", "Japan", "Thailand", "South Korea"], correct: 1 },
-    { question: "Which desert is in northern Africa?", answers: ["Gobi", "Sahara", "Mojave", "Atacama"], correct: 1 },
-    { question: "Which country is shaped like a boot?", answers: ["Spain", "Italy", "Greece", "Portugal"], correct: 1 }
+
+  creative: [
+    {
+      question: "Which color do you get by mixing blue and yellow paint?",
+      answers: ["Purple", "Green", "Orange", "Red"],
+      correct: 1
+    },
+    {
+      question: "Which instrument has black and white keys?",
+      answers: ["Guitar", "Drums", "Piano", "Violin"],
+      correct: 2
+    },
+    {
+      question: "Which of these is a primary color in traditional painting?",
+      answers: ["Green", "Purple", "Red", "Orange"],
+      correct: 2
+    },
+    {
+      question: "What is the art of folding paper called?",
+      answers: ["Origami", "Pottery", "Sculpture", "Collage"],
+      correct: 0
+    },
+    {
+      question: "Which tool is commonly used for digital drawing?",
+      answers: ["Hammer", "Stylus", "Wrench", "Screwdriver"],
+      correct: 1
+    },
+    {
+      question: "Which color is complementary to blue on a traditional color wheel?",
+      answers: ["Green", "Orange", "Purple", "Yellow"],
+      correct: 1
+    },
+    {
+      question: "What do we call a quick preliminary drawing?",
+      answers: ["Sketch", "Portrait", "Mural", "Sculpture"],
+      correct: 0
+    },
+    {
+      question: "Which art form uses movement and music?",
+      answers: ["Painting", "Dance", "Photography", "Drawing"],
+      correct: 1
+    },
+    {
+      question: "Which technique combines different images into one artwork?",
+      answers: ["Collage", "Carving", "Weaving", "Engraving"],
+      correct: 0
+    },
+    {
+      question: "Which of these is a type of visual art?",
+      answers: ["Swimming", "Photography", "Running", "Cooking"],
+      correct: 1
+    }
   ]
 };
 
+// Start quiz when category is clicked
 categoryButtons.forEach(button => {
   button.addEventListener("click", () => {
     startQuiz(button.dataset.category);
@@ -70,13 +158,14 @@ categoryButtons.forEach(button => {
 function startQuiz(category) {
   clearInterval(timer);
 
+  if (!questionBank[category]) {
+    console.error("Unknown category:", category);
+    return;
+  }
+
   currentCategory = category;
 
-  const key = Object.keys(questionBank).find(
-    name => name.toLowerCase() === category.toLowerCase()
-  );
-
-  questions = [...(questionBank[key] || questionBank.general)]
+  questions = [...questionBank[category]]
     .sort(() => Math.random() - 0.5);
 
   currentIndex = 0;
@@ -84,9 +173,13 @@ function startQuiz(category) {
   answeredQuestions = 0;
   totalPoints = 0;
 
-  if (categoryName) {
-    categoryName.textContent = category;
-  }
+  scoreCount.textContent = "0";
+  answeredCount.textContent = "0";
+
+  categoryName.textContent =
+    category === "logical"
+      ? "Logical Challenge"
+      : "Creative Challenge";
 
   startView.hidden = true;
   quizView.hidden = false;
@@ -105,24 +198,14 @@ function showQuestion() {
 
   questionHeading.textContent = currentQuestion.question;
   answerContainer.innerHTML = "";
+  feedback.textContent = "";
+  nextButton.hidden = true;
 
-  if (feedback) {
-    feedback.textContent = "";
-  }
+  progressText.textContent =
+    `Question ${currentIndex + 1} of ${questions.length}`;
 
-  if (nextButton) {
-    nextButton.hidden = true;
-  }
-
-  if (progressText) {
-    progressText.textContent =
-      `Question ${currentIndex + 1} of ${questions.length}`;
-  }
-
-  if (progressFill) {
-    progressFill.style.width =
-      `${(currentIndex / questions.length) * 100}%`;
-  }
+  progressFill.style.width =
+    `${(currentIndex / questions.length) * 100}%`;
 
   currentQuestion.answers.forEach((answer, index) => {
     const button = document.createElement("button");
@@ -145,16 +228,13 @@ function showQuestion() {
     updateTimer();
 
     if (timeLeft <= 0) {
-      clearInterval(timer);
       selectAnswer(-1);
     }
   }, 1000);
 }
 
 function updateTimer() {
-  if (timerText) {
-    timerText.textContent = timeLeft;
-  }
+  timerText.textContent = `${timeLeft}s`;
 }
 
 function selectAnswer(selectedIndex) {
@@ -177,7 +257,10 @@ function selectAnswer(selectedIndex) {
       button.style.color = "white";
     }
 
-    if (index === selectedIndex && selectedIndex !== currentQuestion.correct) {
+    if (
+      index === selectedIndex &&
+      selectedIndex !== currentQuestion.correct
+    ) {
       button.classList.add("incorrect");
       button.style.backgroundColor = "#dc2626";
       button.style.color = "white";
@@ -187,75 +270,73 @@ function selectAnswer(selectedIndex) {
   if (selectedIndex === currentQuestion.correct) {
     correctAnswers++;
     totalPoints += 100 + timeLeft * 10;
-
-    if (feedback) {
-      feedback.textContent = "Correct answer! 🎉";
-    }
+    feedback.textContent = "Correct answer! 🎉";
   } else if (selectedIndex === -1) {
-    if (feedback) {
-      feedback.textContent = "Time is up!";
-    }
+    feedback.textContent = "Time is up!";
   } else {
-    if (feedback) {
-      feedback.textContent = "Incorrect answer!";
-    }
+    feedback.textContent = "Incorrect answer!";
   }
 
-  if (nextButton) {
-    nextButton.hidden = false;
+  // Update score after every question
+  scoreCount.textContent = totalPoints;
+  answeredCount.textContent = answeredQuestions;
+
+  nextButton.hidden = false;
+}
+
+// Next question
+nextButton.addEventListener("click", () => {
+  if (!answered) return;
+
+  currentIndex++;
+
+  if (currentIndex < questions.length) {
+    showQuestion();
+  } else {
+    showResults();
   }
-}
+});
 
-if (nextButton) {
-  nextButton.addEventListener("click", () => {
-    currentIndex++;
-
-    if (currentIndex < questions.length) {
-      showQuestion();
-    } else {
-      showResults();
-    }
-  });
-}
-
+// Final results
 function showResults() {
   clearInterval(timer);
 
   quizView.hidden = true;
   resultView.hidden = false;
 
-  if (progressFill) {
-    progressFill.style.width = "100%";
-  }
+  const total = questions.length;
+  const wrongAnswers = answeredQuestions - correctAnswers;
+  const percentage = Math.round((correctAnswers / total) * 100);
 
-  const scoreElement =
-    document.querySelector("#result-score") ||
-    document.querySelector("#final-score");
+  resultCategory.textContent =
+    currentCategory === "logical"
+      ? "Logical Challenge"
+      : "Creative Challenge";
 
-  const correctElement =
-    document.querySelector("#result-correct") ||
-    document.querySelector("#correct-answers");
+  resultFraction.textContent = `${correctAnswers}/${total}`;
+  resultPercentage.textContent = `${percentage}% correct answers`;
 
-  if (scoreElement) {
-    scoreElement.textContent = totalPoints;
-  }
+  resultAnswered.textContent = answeredQuestions;
+  resultCorrect.textContent = correctAnswers;
+  resultWrong.textContent = wrongAnswers;
+  resultPoints.textContent = totalPoints;
 
-  if (correctElement) {
-    correctElement.textContent =
-      `${correctAnswers} / ${questions.length}`;
-  }
+  progressFill.style.width = "100%";
 
+  // Save results in browser
   const result = {
     category: currentCategory,
     score: totalPoints,
     correctAnswers: correctAnswers,
-    totalQuestions: questions.length,
+    totalQuestions: total,
+    percentage: percentage,
     date: new Date().toISOString()
   };
 
   try {
-    const previousResults =
-      JSON.parse(localStorage.getItem("brainrush-results") || "[]");
+    const previousResults = JSON.parse(
+      localStorage.getItem("brainrush-results") || "[]"
+    );
 
     previousResults.push(result);
 
@@ -264,19 +345,21 @@ function showResults() {
       JSON.stringify(previousResults)
     );
   } catch (error) {
-    console.error("Could not save quiz result:", error);
+    console.error("Could not save results:", error);
   }
 }
 
-document.querySelectorAll(
-  "#restart-button, #play-again, #restart-quiz"
-).forEach(button => {
-  button.addEventListener("click", () => {
-    resultView.hidden = true;
-    startView.hidden = false;
-    quizView.hidden = true;
-    clearInterval(timer);
-  });
+// Play again
+playAgain.addEventListener("click", () => {
+  clearInterval(timer);
+
+  resultView.hidden = true;
+  quizView.hidden = true;
+  startView.hidden = false;
+
+  scoreCount.textContent = "0";
+  answeredCount.textContent = "0";
 });
+
 
 
