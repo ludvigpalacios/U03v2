@@ -1,41 +1,40 @@
-# U03 – Quiz App
-figma: https://ethics-muse-27596105.figma.site
+# Quiz App - U03
+Wireframe: https://ethics-muse-27596105.figma.site
 
-**Skapad av Abiha, Haniah, Soha och Ludvig**
+## Team
+- Ludvig Palacios: Inloggning, Quiz
+- Abiha Khan: Leaderboard
+- Haniah: Friends
+- Soha Oraibi: Quiz
 
-### Arbetsfördelning
+## Om appen
+Appen är en quizapplikation där användaren kan skapa ett konto, logga in och spela quiz. Användaren väljer mellan att spela, se en leaderboard eller gå till friends-sidan.
 
-* **Startsidan och Login:** Ludvig
-* **Quiz och frågor:** Soha
-* **Leaderboard:** Abiha
-* **Friends:** Haniah
+När användaren skapar ett konto sparas informationen lokalt i webbläsaren med localStorage. Appen kollar bland annat så att användarnamn och e-post inte redan finns, samt att lösenordet uppfyller kraven. Vid inloggning jämförs uppgifterna med de sparade kontona och användaren får feedback om inloggningen lyckas eller inte.
 
-### README ska innehålla
+Quizet hämtar frågor och svarsalternativ från en JSON-fil. Användaren väljer ett svar och får direkt feedback om svaret var rätt eller fel. Det finns även en timer som räknar ner under quizet. När tiden är slut eller användaren har svarat låses knapparna så att man inte kan svara igen.
 
-* Namn på alla i teamet.
-* En sammanfattning av hur appen fungerar.
-* Våra skisser.
-* Länk till den publicerade appen.
-* En reflektion över styrkor och brister.
-* Om vi har använt AI-verktyg, vad de användes till och hur vi granskade det som genererades.
+Leaderboard och friends-sidan visas som separata sidor med hjälp av iframes. Header-menyn gör att rätt sida visas och att de andra sidorna göms. Leaderboarden uppdateras och sparar resultat, medan friends-sidan låter användaren se och hantera vänner.
 
-### Hur appen fungerar
+## Skisser
+Här kan ni lägga in bilder på skisserna eller länka till dem.
 
-Appen börjar på startsidan där spelaren kan välja mellan två quiz, ett med logiska frågor och ett med kreativa frågor. Varje quiz består av fem frågor som är sparade lokalt i en JSON-fil.
+## Publicerad app
+[https://ethics-muse-27596105.figma.site](https://ludvigpalacios.github.io/U03v2/)
 
-För varje fråga finns det fyra svarsalternativ som spelaren kan välja mellan. En timer går i bakgrunden och spelaren har fem minuter på sig att besvara alla fem frågorna.
+## Reflektion
 
-För varje fråga som spelaren svarar rätt på får hen 100 poäng. Tiden som är kvar när quizet avslutas ger extra poäng beroende på hur mycket tid som återstår på klockan.
+### Styrkor
+- Appen har flera funktioner som fungerar ihop: inloggning, skapande av konto, quiz, timer, leaderboard och friends-sida.
+- Vi har använt localStorage för att spara konton och resultat, vilket gör att informationen finns kvar även efter att sidan laddas om.
+- Quizet ger tydlig feedback till användaren, både vid rätt och fel svar.
+- Projektet är uppdelat i flera JavaScript-filer, vilket gör koden lättare att förstå och underhålla.
+- Vi har löst flera buggar under projektets gång, till exempel problem med timers, knappar, inloggning och sidnavigering.
 
-När quizet är färdigspelat kan spelaren välja att spela igen, spara sitt resultat genom att skapa ett konto eller gå vidare till leaderboarden för att se andra spelares poäng.
-
-Det finns även en Friends-sida där spelaren kan lägga till sina vänner och skapa sin egen vänkrets.
-
-All login information sparas i en fil på lokalt.
-
-### Vad funkade bra?
-
-Det som gick bra var att skapa wireframes på workshopen och använda figma make för att skapa en bra prototyp av våra simpla wireframes så att vi hade en ide om hur vi skulle gestalta och strukturera vår app.
-
-Uppdelningen av sdiorna gick också bra där alla fick den delen som de var mest intereserade av.
+### Brister
+- Vi hann inte använda moderna standarder som ES2024+ fullt ut.
+- Vi hann inte implementera `export` och `import`, vilket senare visade sig vara nödvändigt för att kunna använda vissa funktioner utanför iframe-sidorna.
+- Vissa delar av koden kunde ha varit mer strukturerade och återanvända på ett bättre sätt.
+- Vi fick lösa en del merge-konflikter när flera personer arbetade i olika branches, vilket tog extra tid.
+- Om vi hade haft mer tid hade vi kunnat förbättra mobilanpassningen och göra fler funktioner färdiga, till exempel poängsparning för inloggade användare.
 
