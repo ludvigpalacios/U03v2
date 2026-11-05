@@ -1,105 +1,283 @@
-html{
-    font-size:62.5%;
+
+* {
+  box-sizing: border-box;
 }
 
-body{
-    box-sizing: border-box;
-    display:flex;
-    flex-direction:column;
-    justify-self: center;
-
-    /*Decor */
-    gap:1rem;
-    /*width: 100vw;
-    height: 100vh;
-    max-width: 100vw;
-    max-height: 100vh;*/
-
-
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #101827;
+  color: #f8fafc;
 }
 
-
-.quiz-time{
-    /*box-sizing: border-box;
-    display:flex;*/
-    display:grid;
-
-    .quiz-stage-list{
-        grid-area:quizStage;
-    }
-    .question-list{
-        grid-area:question;
-    }
-    .clock-list{
-        grid-area:clock;
-    }
-
-    /*List */
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-
-    grid-template-areas: 
-    "quizStage clock"
-    "question question";
-
+[hidden] {
+  display: none !important;
 }
 
-.quiz-main{
-    display:flex;
-    flex-direction:column;
-    gap:2rem;
-    padding-left:2rem;
-    padding-right:2rem;
-
+.quiz-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
 }
 
-.quiz-selection{
-    display:flex;
-    flex-direction: column;
-    gap:1rem;
-    span{
-        font-size:large;
-    }
+.quiz-main section {
+  width: 100%;
+  max-width: 680px;
 }
 
-.quiz-button, .next-button{
-    width:stretch;
-    height:8rem;
-    background-color:inherit;
-
-    border: 1px solid black;
-    border-radius: 2vh;
-    align-self:center;
-
-    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-
-}
-.quiz-button:hover, .next-button:hover{
-    transform: translateY(-5px);
-    box-shadow:0 18px 35px rgb(30 27 75 / 13%);
+.quiz-panel {
+  background: #1d293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  padding: 35px;
+  text-align: center;
 }
 
-#explanation-container{
-    display:flex;
-    font-size:large;
-    font-weight:800;
-    justify-content:center;
-    
+h1 {
+  font-size: 30px;
+  margin-bottom: 12px;
 }
 
-.right-answer{
-    background-color:rgb(8, 233, 8);
-}
-.wrong-answer{
-    background-color: red;
+h2 {
+  font-size: 23px;
+  margin: 30px 0;
+  line-height: 1.4;
 }
 
-/*Disable user input when wrong answer */
-.disabled {
-    pointer-events: none;
-    opacity: 0.6;
-    cursor: not-allowed;
+p {
+  color: #cbd5e1;
 }
-.hide{
-    display:none;
+
+.eyebrow {
+  color: #a5b4fc;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.categories {
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  transition: 0.2s;
+}
+
+.category-button,
+#next-button,
+#play-again {
+  background: #6366f1;
+  color: white;
+  font-weight: bold;
+}
+
+.category-button:hover,
+#next-button:hover,
+#play-again:hover {
+  background: #4f46e5;
+}
+
+.quiz-top,
+.quiz-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.quiz-top {
+  font-weight: bold;
+}
+
+.progress-track {
+  height: 10px;
+  background: #334155;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 18px 0;
+}
+
+#progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #818cf8;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+.quiz-stats {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.answers {
+  display: grid;
+  gap: 12px;
+}
+
+.answer-button {
+  width: 100%;
+  background: #334155;
+  color: white;
+  text-align: left;
+  border: 1px solid #475569;
+}
+
+.answer-button:hover:not(:disabled) {
+  background: #475569;
+}
+
+.answer-button.correct {
+  background: #166534;
+  border-color: #22c55e;
+}
+
+.answer-button.incorrect {
+  background: #991b1b;
+  border-color: #ef4444;
+}
+
+.answer-button:disabled {
+  cursor: default;
+}
+
+#quiz-feedback {
+  min-height: 40px;
+  line-height: 1.5;
+  margin: 20px 0;
+}
+
+#next-button {
+  width: 100%;
+}
+
+.trophy {
+  font-size: 52px;
+}
+
+.result-score {
+  font-size: 56px;
+  font-weight: bold;
+  margin: 22px 0 8px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.result-stat {
+  background: #334155;
+  border-radius: 12px;
+  padding: 18px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-stat strong {
+  font-size: 26px;
+}
+
+.result-stat span {
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.final-points {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+#play-again {
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .quiz-panel {
+    padding: 22px 16px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .result-stat {
+    padding: 14px 4px;
+  }
+}
+
+/* Answer buttons */
+.answer-button {
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.answer-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #818cf8;
+}
+
+/* Correct answer = green */
+.answer-button.correct,
+.answer-button.correct:disabled {
+  background-color: #15803d !important;
+  border-color: #4ade80 !important;
+  color: white !important;
+}
+
+/* Wrong answer = red */
+.answer-button.incorrect,
+.answer-button.incorrect:disabled {
+  background-color: #b91c1c !important;
+  border-color: #f87171 !important;
+  color: white !important;
+}
+
+/* Better feedback */
+#quiz-feedback {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* More polished card */
+.quiz-panel {
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.3);
+}
+
+.result-score {
+  color: #a5b4fc;
+}
+.answer-button.incorrect,
+.answer-button.incorrect:disabled {
+  background-color: red !important;
+  color: white !important;
+  border: 2px solid red !important;
+}
+#quiz-answers button.correct {
+  background: #15803d !important;
+  border: 2px solid #22c55e !important;
+  color: white !important;
+}
+
+#quiz-answers button.incorrect {
+  background: #dc2626 !important;
+  border: 2px solid #ef4444 !important;
+  color: white !important;
+}
+body {
+  background: hotpink !important;
 }

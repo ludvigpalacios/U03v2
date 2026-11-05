@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Om Ludwigs inloggningsdialog finns direkt på sidan
+      // Login
       const loginDialog = document.querySelector("#login-page");
 
       if (loginDialog && typeof loginDialog.showModal === "function") {
