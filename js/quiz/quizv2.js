@@ -49,6 +49,10 @@ async function startQuiz(category) {
     if (questions.length === 0) {
       throw new Error("No questions found");
     }
+//Fetcha fram objects från en json med frågor och svar
+console.log("quizv2 js loaded");
+//Async
+let currentUser;
 
     currentIndex = 0;
     correctAnswers = 0;
@@ -135,6 +139,15 @@ function selectAnswer(selectedIndex) {
 
   const correctIndex = Number(question.correctIndex);
   const isCorrect = selectedIndex === correctIndex;
+            //Check if the input matches a correct answer 
+            if(button.textContent===Question.answers[correctIndex]){
+                console.log("Correct answer pressed");
+                button.classList.add("right-answer");
+                button.classList.add("disabled");
+                grabQuestionContainer.textContent="Correct! +100p";
+
+                //Ge 100p
+                //scores+=100;
 
   answeredQuestions++;
 
