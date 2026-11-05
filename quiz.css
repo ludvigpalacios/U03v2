@@ -1,92 +1,243 @@
-/* quiz.css – styling for the quiz */
 
-body {
-    margin: 0;
-    font-family: "DM Sans", sans-serif;
-    color: #111021;
-    background-color: white;
+/* BrainRush Quiz */
+
+* {
+  box-sizing: border-box;
 }
 
-main {
-    max-width: 40rem;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+body {
+  margin: 0;
+  font-family: "DM Sans", Arial, sans-serif;
+  background-color: white;
+  color: #111021;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.quiz-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.quiz-main section {
+  width: 100%;
+  max-width: 680px;
+}
+
+.quiz-panel {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 35px;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 23px;
+  margin: 30px 0;
+  line-height: 1.4;
 }
 
 p {
-    color: #68658b;
+  color: #68658b;
+}
+
+.eyebrow {
+  color: #6366f1;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 
 .categories {
-    display: grid;
-    gap: 1rem;
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
 }
 
 button {
-    padding: 1rem;
-    font: inherit;
-    font-size: 1rem;
-    color: #111021;
-    background-color: white;
-    border: 1px solid #c9c8d6;
-    border-radius: 0.75rem;
-    cursor: pointer;
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #c9c8d6;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: white;
+  color: #111021;
+  transition: 0.2s ease;
 }
 
-/* Visible focus for keyboard users */
-button:focus-visible {
-    outline: 3px solid #4f46e5;
-    outline-offset: 3px;
+.category-button,
+#next-button,
+#play-again {
+  background-color: #6366f1;
+  color: white;
+  font-weight: bold;
+  border-color: #6366f1;
+}
+
+.category-button:hover,
+#next-button:hover,
+#play-again:hover {
+  background-color: #4f46e5;
+}
+
+.quiz-top,
+.quiz-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .quiz-top {
-    display: flex;
-    justify-content: space-between;
+  font-weight: bold;
 }
 
-#quiz-timer {
-    font-weight: bold;
-    color: #111021;
+.progress-track {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 18px 0;
 }
 
-#quiz-word {
-    font-size: 2.5rem;
-    font-weight: bold;
+#progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #818cf8;
+  border-radius: 20px;
+  transition: width 0.3s ease;
 }
 
+.quiz-stats {
+  font-size: 14px;
+  color: #68658b;
+}
+
+.answers,
 #quiz-answers {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    gap: 0.6rem;
+  display: grid;
+  gap: 12px;
 }
 
-#quiz-answers button {
-    width: 100%;
-    text-align: left;
+#quiz-answers .answer-button {
+  width: 100%;
+  text-align: left;
+  background-color: white;
+  color: #111021;
+  border: 2px solid #c9c8d6;
+  border-radius: 12px;
+  padding: 16px;
 }
 
-/* Right and wrong answers */
-.correct {
-    background-color: #ecfdf3;
-    border: 2px solid #067647;
+#quiz-answers .answer-button:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  border-color: #818cf8;
 }
 
-.wrong {
-    background-color: #fef3f2;
-    border: 2px solid #b42318;
+/* RÄTT SVAR = GRÖNT */
+
+#quiz-answers button.answer-button.correct,
+#quiz-answers button.answer-button.correct:disabled {
+  background-color: #15803d !important;
+  border: 2px solid #22c55e !important;
+  color: white !important;
+  opacity: 1 !important;
 }
 
-.feedback-correct {
-    color: #067647;
-    font-weight: bold;
+/* FEL SVAR = RÖTT */
+
+#quiz-answers button.answer-button.incorrect,
+#quiz-answers button.answer-button.incorrect:disabled {
+  background-color: #dc2626 !important;
+  border: 2px solid #ef4444 !important;
+  color: white !important;
+  opacity: 1 !important;
 }
 
-.feedback-wrong {
-    color: #b42318;
-    font-weight: bold;
+#quiz-answers .answer-button:disabled {
+  cursor: default;
 }
 
-/* Breakpoint 1: small phones */
-@media (max-width: 400px) {
-    h2 { font-size:
+#quiz-feedback {
+  min-height: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+#next-button {
+  width: 100%;
+}
+
+.trophy {
+  font-size: 52px;
+}
+
+.result-score {
+  font-size: 56px;
+  font-weight: bold;
+  color: #6366f1;
+  margin: 22px 0 8px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.result-stat {
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 18px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-stat strong {
+  font-size: 26px;
+}
+
+.result-stat span {
+  font-size: 12px;
+  color: #68658b;
+}
+
+.final-points {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+#play-again {
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .quiz-panel {
+    padding: 22px 16px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .result-stat {
+    padding: 14px 4px;
+  }
+}
