@@ -9,4 +9,4 @@ function updateScore(username, newScore) {
     } else {
         console.log("Inget konto hittades med det användarnamnet.");
     }
-}
+};
