@@ -4,7 +4,7 @@ const grabTimerText = document.querySelector("#text-time-container");
 grabTimerText.textContent = "5:00";
 console.log("timer script loaded");
 
-let timeLeft= 300; // 300 seconds = 5 minutes
+let timeLeft= 60; // 60 seconds = 1 minutes
 let timer;
 
 resetTimer();
@@ -15,7 +15,7 @@ resetTimer();
 function resetTimer(){
     clearInterval(timer);
 
-    timeLeft=300;
+    timeLeft=60;
     
     timer = setInterval(() => {
         timeLeft--;
@@ -36,7 +36,7 @@ function resetTimer(){
             grabNextButton.classList.remove("hide");
             updateExplanation(jsonData.questions[atQuestion].explanation);
         }
-    }, 10); //Update to 1000 when finished
+    }, 1000); //Update to 1000 when finished
 
 }
 

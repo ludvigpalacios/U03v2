@@ -10,6 +10,7 @@ const grabNextButton = document.querySelector(".next-button");
 //Fetcha fram objects från en json med frågor och svar
 console.log("quizv2 js loaded");
 //Async
+let currentUser;
 
 //Where the questions are at 
 let atQuestion=0;
@@ -97,10 +98,10 @@ function inputListener(data){
                 console.log("Correct answer pressed");
                 button.classList.add("right-answer");
                 button.classList.add("disabled");
-                grabQuestionContainer.textContent="Correct!";
+                grabQuestionContainer.textContent="Correct! +100p";
 
                 //Ge 100p
-                scores+=100;
+                //scores+=100;
 
 
 
