@@ -1,5 +1,6 @@
 //Grab all necessary elements
 const grabQuestionContainer=document.querySelector(".question-container")
+console.log(grabQuestionContainer);
 
 const grabQuizbutton= document.querySelectorAll(".quiz-button");
 
@@ -10,7 +11,7 @@ const grabNextButton = document.querySelector(".next-button");
 //Fetcha fram objects från en json med frågor och svar
 console.log("quizv2 js loaded");
 //Async
-let currentUser;
+//let currentUser;
 
 //Where the questions are at 
 let atQuestion=0;
@@ -21,12 +22,23 @@ let jsonData;
 //Save scores
 let scores=0;
 
-startQuiz();
 
 async function startQuiz (){
     jsonData = await fetchQUIZ();
     console.log("Fetched quiz data:",jsonData);
     replaceContents(jsonData, atQuestion);
+    inputListener(jsonData, atQuestion);
+}
+
+async function startLogicalQuiz(){
+    jsonData = await fetchQUIZ();
+    loadLogicalQuiz(jsonData, atQuestion);
+    inputListener(jsonData,atQuestion);
+}
+
+async function startCreativeQuiz(){
+    jsonData=await fetchQUIZ();
+    loadCreativeQuiz(jsonData, atQuestion);
     inputListener(jsonData, atQuestion);
 }
 
@@ -67,6 +79,8 @@ function replaceContents(data, atQuestion){
     //console.log(atQuestion);
 
     console.log(data.questions[atQuestion].question);
+    console.log(getQuestionContainer());
+
 
     grabQuestionContainer.textContent=data.questions[atQuestion].question;
     grabQuizbutton.forEach(text =>{
@@ -77,6 +91,53 @@ function replaceContents(data, atQuestion){
     })
     
 }
+
+//Load the questions onto the page
+function loadLogicalQuiz(data, atQuestion){
+    //console.log(data.questions[atQuestion].question);
+    let i=0;
+    atQuestion=Number(atQuestion);
+
+    //console.log(atQuestion);
+
+    console.log(data.questions[atQuestion].question);
+    console.log("loadLogicalQuiz loaded");
+
+
+
+    getQuestionContainer().textContent=data.questions[atQuestion].question;
+    grabQuizbutton.forEach(text =>{
+        //replace all button texts with the ones the json
+        text.textContent=data.questions[atQuestion].answers[i];
+        i++;
+
+    })
+    
+};
+
+//Load the questions onto the page
+function loadCreativeQuiz(data, atQuestion){
+    //console.log(data.questions[atQuestion].question);
+    let i=0;
+    atQuestion=10;
+
+    //console.log(atQuestion);
+
+    console.log(data.questions[atQuestion].question);
+    console.log("loadCreativeQuiz loaded");
+
+
+
+    getQuestionContainer().textContent=data.questions[atQuestion].question;
+    grabQuizbutton.forEach(text =>{
+        //replace all button texts with the ones the json
+        text.textContent=data.questions[atQuestion].answers[i];
+        i++;
+
+    })
+    
+}
+
 function inputListener(data){
     window.addEventListener("click",(e) =>{
         const correctIndex=data.questions[atQuestion].correctIndex;
@@ -98,7 +159,7 @@ function inputListener(data){
                 console.log("Correct answer pressed");
                 button.classList.add("right-answer");
                 button.classList.add("disabled");
-                grabQuestionContainer.textContent="Correct! +100p";
+                getQuestionContainer().textContent="Correct! +100p";
 
                 //Ge 100p
                 //scores+=100;
@@ -130,7 +191,7 @@ function inputListener(data){
 
             document.querySelector(".current-question").textContent=atQuestion+1;
 
-            updateScore(currentUser, scores);
+            //updateScore(currentUser, scores);
 
         }
     })
@@ -154,8 +215,16 @@ function resetAnswers(){
 
 function updateExplanation(QuestionExplanation){
     grabExplanationContainer.textContent=QuestionExplanation;
-    grabQuestionContainer.textContent=QuestionExplanation;
+    getQuestionContainer().textContent=QuestionExplanation;
 
 }
 
 
+//Get questionContainer 
+function getQuestionContainer() {
+    const el = document.querySelector(".question-container");
+    if (!el) console.warn("question-container saknas i den här sidan");
+    return el;
+}
+
+let listenerAdded = false;

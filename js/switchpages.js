@@ -3,13 +3,14 @@ const grabHeader = document.querySelector(".app-header");
 const grabMain = document.querySelector(".main-app");
 const grabLeaderboardPage = document.querySelector(".leaderboard-iframe");
 const grabFriendsPage= document.querySelector(".friends-iframe");
+const grabQuizFrame = document.querySelector(".quiz-iframe");
+
 
 
 
 const grabLogo = document.querySelector(".logo");
 
 //Quiz
-const grabQuiz = document.querySelector(".app-button");
 
 //Event listener
 grabHeader.addEventListener("keydown", (e)=>{
@@ -41,16 +42,32 @@ window.addEventListener("click", (e) => {
         hideLeaderboardPage();
 
     }
-    if(e.target.closest(".app-button")){
+    /*if(e.target.closest(".app-button")){
         //Hides the main app when any of the quiz buttons are pressed
         grabMain.classList.add("hide");
         //Show the quiz html instead when the button is clicked
 
         //Grab the quiz page html
         showQuizPage();
+        startQuiz();
+
+    }*/
+    if(e.target.closest(".logicalQuiz-button")){
+        grabMain.classList.add("hide");
+        showQuizPage();
+        hideFriendsPage();
+        grabLeaderboardPage.classList.add("hide");
+        grabQuizFrame.contentWindow.startLogicalQuiz();
 
     }
+    if(e.target.closest(".creativeQuiz-button")){
+        grabMain.classList.add("hide");
+        showQuizPage();
+        hideFriendsPage();
+        grabLeaderboardPage.classList.add("hide");
+        grabQuizFrame.contentWindow.startCreativeQuiz();
 
+    }
     if(e.target.matches("button.play-button") || e.target.closest("svg.brand-mark") || e.target.closest("span.logotext")){
         //Make it so that when I click back on play, I remove the "hide" class
         //console.log("logo clicked");
