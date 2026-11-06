@@ -10,3 +10,6 @@ if (results) {
 } else {
     document.querySelector(".results h1").textContent = "No results yet";
 }
+document.querySelector("#playAgain").addEventListener("click", () => {
+    window.top.location.reload();
+});

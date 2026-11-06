@@ -1,4 +1,6 @@
-//import {startLogicalQuiz, startCreativeQuiz} from "./quizv2.js";
+//import {startCreativeQuiz} from "./quizv2.js";
+//import {startLogicalQuiz} from "./fetchAccount.js";
+
 
 //Grab elements
 const grabHeader = document.querySelector(".app-header");

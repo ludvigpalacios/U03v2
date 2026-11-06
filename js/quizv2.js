@@ -1,3 +1,5 @@
+
+
 //Grab all necessary elements
 const grabQuestionContainer=document.querySelector(".question-container")
 console.log(grabQuestionContainer);
@@ -39,6 +41,8 @@ let wrongCount = 0;
     replaceContents(jsonData, atQuestion);
     inputListener(jsonData, atQuestion);
 }*/
+
+startLogicalQuiz();
 
 async function startLogicalQuiz(){
     resetQuiz();
@@ -252,7 +256,7 @@ function inputListener(data, atQuestion, accountData){
             answeredCount++;
             currentAnsweredContainer.textContent=answeredCount;
 
-            console.log(data, atQuestion, accountData[0].username);
+            //console.log(data, atQuestion, accountData[0].username);
 
         }
     })

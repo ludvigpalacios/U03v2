@@ -1,5 +1,7 @@
 import { getLeaderboard, LEADERBOARD_KEY } from "./storage.js";
 
+
+
 const leaderboardBody = document.querySelector("#leaderboard-body");
 const podium = document.querySelector("#leaderboard-podium");
 const emptyMessage = document.querySelector("#leaderboard-empty");
@@ -23,10 +25,8 @@ function getInitials(name) {
   ).toUpperCase();
 }
 
-function playerDescription(player) {
-  return [player.handle, player.isExample ? "Example player" : ""]
-    .filter(Boolean)
-    .join(" · ");
+function playerDescription() {
+    return "";
 }
 
 function createRow(player, index) {
@@ -87,10 +87,21 @@ function renderPodium(players) {
   }
 }
 
+const getAccountPlayers = () =>
+    fetchAccounts()
+        .filter(({ score }) => score > 0)
+        .map(({ username, score, quizzes = 0 }) => ({
+            name: username,
+            score,
+            quizzes,
+            handle: "",
+            isExample: false,
+        }));
+
 export function displayLeaderboard() {
-  const players = getLeaderboard(examplePlayers)
-    .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
-    .slice(0, 10);
+  const players = [...getLeaderboard(examplePlayers), ...getAccountPlayers()]
+      .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
+      .slice(0, 10);
   leaderboardBody.replaceChildren(...players.map(createRow));
   emptyMessage.hidden = players.length > 0;
   renderPodium(players);
@@ -100,7 +111,8 @@ refreshButton.addEventListener("click", displayLeaderboard);
 window.addEventListener("leaderboard-updated", displayLeaderboard);
 // A quiz running in another same-origin iframe/tab updates this page too.
 window.addEventListener("storage", (event) => {
-  if (event.key === LEADERBOARD_KEY || event.key === null) displayLeaderboard();
+    if (event.key === LEADERBOARD_KEY || event.key === "account" || event.key === null)
+        displayLeaderboard();
 });
 window.addEventListener("pageshow", displayLeaderboard);
 
@@ -120,3 +132,23 @@ try {
     "Example scores could not be loaded. Your saved results are still shown.";
 }
 displayLeaderboard();
+
+function fetchAccounts(){
+    try{
+        const getAccount = localStorage.getItem("account");
+        console.log("Grabbed Account JSON: ", getAccount);
+
+        if(getAccount != null){
+            const Account = JSON.parse(getAccount);
+            console.log("Accounts:", Account);
+            return Account;
+        }
+    }catch(error){
+        if(error.name === "SyntaxError"){
+            console.log("Saved account data is not valid JSON format");
+        }else{
+            console.log("Some other unknown error has occured!", error.message);
+        }
+    }
+    return [];   // fallback, so it's never undefined
+}

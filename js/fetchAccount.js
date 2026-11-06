@@ -18,16 +18,28 @@ function fetchAccounts(){
     return [];   // fallback, so it's never undefined
 }
 
+function updateScore(score, id = fetchLoggedID()) {
+    if (id === null) return;
+    const accounts = fetchAccounts();
+    if (!accounts[id]) return;
+
+    accounts[id].score = Math.max(accounts[id].score ?? 0, score);
+    accounts[id].quizzes = (accounts[id].quizzes ?? 0) + 1;
+    saveAccounts(accounts);
+}
+
 function fetchLoggedID(){
     const saved = localStorage.getItem("loggedID");
     return saved !== null ? JSON.parse(saved) : null;
 }
+//import {fetchLoggedID, updateScore, fetchAccounts} from ""
 
-function updateScore(score, Account, LoggedID){
+/*function updateScore(score, Account, LoggedID){
     //Input the score, the account, and the LoggedID
     Account[LoggedID].score=score;
     const accountAsJSON=JSON.stringify(Account);
     localStorage.setItem("account", accountAsJSON);
 
     console.log(Account);
-}
+}*/
+

@@ -23,7 +23,7 @@ try {
     const getAccount = localStorage.getItem("account");
     const getLoggedID = localStorage.getItem("loggedID");
     console.log("Grabbed Account JSON: ", getAccount);
-    console.log("Grabbed Logged Account ID:", getLoggedID);
+    console.log("Grabbed Logged Account ID:", );
 
 
     if (getAccount != null) {
