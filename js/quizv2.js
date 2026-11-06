@@ -28,6 +28,10 @@ let answeredCount=0;
 
 let accountID=fetchLoggedID();
 
+//count the right answers, and wrong answers
+let correctCount = 0;
+let wrongCount = 0;
+
 
 /*async function startQuiz (){
     jsonData = await fetchQUIZ();
@@ -37,19 +41,24 @@ let accountID=fetchLoggedID();
 }*/
 
 async function startLogicalQuiz(){
+    resetQuiz();
     jsonData = await fetchQUIZ();
     accountData = await fetchAccounts();
     console.log(accountData);
-    
+
     loadLogicalQuiz(jsonData, atQuestion);
     inputListener(jsonData, atQuestion, accountData);
+    
 }
 
 async function startCreativeQuiz(){
+    resetQuiz();
+
     jsonData=await fetchQUIZ();
     accountData= await fetchAccounts();
     loadCreativeQuiz(jsonData, atQuestion);
     inputListener(jsonData, atQuestion, accountData);
+
 }
 
 async function fetchQUIZ (){
@@ -180,6 +189,16 @@ function inputListener(data, atQuestion, accountData){
             disableButtons();
 
             updateScore(scores, accountData, accountID);
+
+            localStorage.setItem("lastResults", JSON.stringify({
+                answered: correctCount + wrongCount,
+                correct: correctCount,
+                incorrect: wrongCount,
+                points: scores
+            }));
+            window.location.href = "results.html";
+
+
             return;
 
         }
@@ -195,16 +214,13 @@ function inputListener(data, atQuestion, accountData){
                 button.classList.add("disabled");
                 getQuestionContainer().textContent="Correct!";
                 scores+=100;
+                correctCount++;
                 
                 currentScoresContainer.textContent=scores;
                 
 
-
-
                 //Ge 100p
                 //scores+=100;
-
-
 
             }else{
                 console.log("wrong answer!");
@@ -214,6 +230,8 @@ function inputListener(data, atQuestion, accountData){
                 //Add a red tint for wrong answer
                 button.classList.add("wrong-answer");
                 button.classList.add("disabled");
+
+                wrongCount++;
 
             }
         }if(nextButton){
@@ -272,24 +290,14 @@ function getQuestionContainer() {
 
 let listenerAdded = false;
 
-//import  {fetchAccounts} from "./createAccounts.js";
+function resetQuiz(){
+    scores = 0;
+    answeredCount = 0;
+    correctCount = 0;
+    wrongCount = 0;
+    atQuestion = 0;
 
-/*async function fetchAccounts(){
-    console.log("fetch account loaded");
-
-    try{
-        const accountPromise = await fetch("accounts");
-        if(!accountPromise.ok){
-            console.log("Problem");
-            return;
-        }
-        const fetchedAccount = await accountPromise.json();
-
-        return fetchedAccount;
-
-
-    }catch(error){
-        console.log("An error has occured:", error);
-    }
-}*/
-
+    currentScoresContainer.textContent = scores;
+    currentAnsweredContainer.textContent = answeredCount;
+    resetAnswers();   // clears the right/wrong colours and hides the next button
+}
