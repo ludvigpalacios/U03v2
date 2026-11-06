@@ -80,6 +80,11 @@ body {
 }
 
 .results-button {
+    /*Removes browsers default settings */
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+
     display: inline-block;
     padding: 0.8rem 2rem;
     border-radius: 999px;
