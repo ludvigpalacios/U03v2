@@ -3,7 +3,11 @@ const startView = document.querySelector("#start-view");
 const quizView = document.querySelector("#quiz-view");
 const resultView = document.querySelector("#result-view");
 
-const categoryButtons = document.querySelectorAll(".category-button");
+//The one i wanna change
+const categoryButtons = document.querySelector(".app-button");
+
+console.log("Categorybuttons", categoryButtons);
+
 const categoryName = document.querySelector("#category-name");
 const progressText = document.querySelector("#quiz-progress");
 const progressFill = document.querySelector("#progress-fill");
