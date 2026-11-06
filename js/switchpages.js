@@ -1,3 +1,5 @@
+//import {startLogicalQuiz, startCreativeQuiz} from "./quizv2.js";
+
 //Grab elements
 const grabHeader = document.querySelector(".app-header");
 const grabMain = document.querySelector(".main-app");
@@ -59,6 +61,7 @@ window.addEventListener("click", (e) => {
         grabLeaderboardPage.classList.add("hide");
         grabQuizFrame.contentWindow.startLogicalQuiz();
 
+
     }
     if(e.target.closest(".creativeQuiz-button")){
         grabMain.classList.add("hide");
@@ -66,6 +69,7 @@ window.addEventListener("click", (e) => {
         hideFriendsPage();
         grabLeaderboardPage.classList.add("hide");
         grabQuizFrame.contentWindow.startCreativeQuiz();
+
 
     }
     if(e.target.matches("button.play-button") || e.target.closest("svg.brand-mark") || e.target.closest("span.logotext")){
@@ -90,6 +94,9 @@ window.addEventListener("click", (e) => {
         //hide quizpage
         hideQuizPage();
         hideFriendsPage();
+
+        //refresh page
+        window.location.reload();
 
     }
 

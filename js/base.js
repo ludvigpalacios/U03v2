@@ -34,6 +34,9 @@ openCreate.addEventListener("click", (e) => {
     e.preventDefault(); /*Prevent the page from reloading */
     grabLogin.showModal();
 
+    //Load the script
+    
+
 })  
 
 //Close the login page

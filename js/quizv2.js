@@ -8,6 +8,9 @@ const grabExplanationContainer = document.querySelector("#explanation-container"
 
 const grabNextButton = document.querySelector(".next-button");
 
+const currentAnsweredContainer=document.querySelector("#currentAnsweredContainer");
+const currentScoresContainer=document.querySelector("#currentScoreContainer");
+
 //Fetcha fram objects från en json med frågor och svar
 console.log("quizv2 js loaded");
 //Async
@@ -21,25 +24,32 @@ let jsonData;
 
 //Save scores
 let scores=0;
+let answeredCount=0;
+
+let accountID=fetchLoggedID();
 
 
-async function startQuiz (){
+/*async function startQuiz (){
     jsonData = await fetchQUIZ();
     console.log("Fetched quiz data:",jsonData);
     replaceContents(jsonData, atQuestion);
     inputListener(jsonData, atQuestion);
-}
+}*/
 
 async function startLogicalQuiz(){
     jsonData = await fetchQUIZ();
+    accountData = await fetchAccounts();
+    console.log(accountData);
+    
     loadLogicalQuiz(jsonData, atQuestion);
-    inputListener(jsonData,atQuestion);
+    inputListener(jsonData, atQuestion, accountData);
 }
 
 async function startCreativeQuiz(){
     jsonData=await fetchQUIZ();
+    accountData= await fetchAccounts();
     loadCreativeQuiz(jsonData, atQuestion);
-    inputListener(jsonData, atQuestion);
+    inputListener(jsonData, atQuestion, accountData);
 }
 
 async function fetchQUIZ (){
@@ -138,17 +148,41 @@ function loadCreativeQuiz(data, atQuestion){
     
 }
 
-function inputListener(data){
+function inputListener(data, atQuestion, accountData){
+        /*console.log(currentScoresContainer);
+        console.log(currentAnsweredContainer);*/
+        //console.log(scores, answeredCount);
+        currentScoresContainer.textContent=scores;
+        currentAnsweredContainer.textContent=answeredCount;
+
+        console.log(data, atQuestion, accountData);
+
     window.addEventListener("click",(e) =>{
         const correctIndex=data.questions[atQuestion].correctIndex;
         const Question=data.questions[atQuestion];
         const explanation=data.questions[atQuestion].explanation;
-        console.log("inputListener loaded", atQuestion);
+        //console.log("inputListener loaded", atQuestion);
 
 
 
         const button=e.target.closest("button.quiz-button");
         const nextButton=e.target.closest("button.next-button");
+        //const currentScoreContainer=e.target.closest("button#currentScoreContainer");
+        //const currentAnsweredContainer=e.target.closest("button#currentAnsweredContainer");
+        console.log(data, atQuestion, accountData);
+
+
+        console.log("Answered count:", answeredCount);
+        if(answeredCount==10){
+            console.log("End of line, write results!");
+            
+
+            disableButtons();
+
+            updateScore(scores, accountData, accountID);
+            return;
+
+        }
         if(button){
             console.log("button clicked");
             disableButtons();
@@ -159,12 +193,16 @@ function inputListener(data){
                 console.log("Correct answer pressed");
                 button.classList.add("right-answer");
                 button.classList.add("disabled");
-                getQuestionContainer().textContent="Correct! +100p";
+                getQuestionContainer().textContent="Correct!";
+                scores+=100;
+                
+                currentScoresContainer.textContent=scores;
+                
+
+
 
                 //Ge 100p
                 //scores+=100;
-
-
 
 
 
@@ -192,6 +230,11 @@ function inputListener(data){
             document.querySelector(".current-question").textContent=atQuestion+1;
 
             //updateScore(currentUser, scores);
+
+            answeredCount++;
+            currentAnsweredContainer.textContent=answeredCount;
+
+            console.log(data, atQuestion, accountData[0].username);
 
         }
     })
@@ -228,3 +271,25 @@ function getQuestionContainer() {
 }
 
 let listenerAdded = false;
+
+//import  {fetchAccounts} from "./createAccounts.js";
+
+/*async function fetchAccounts(){
+    console.log("fetch account loaded");
+
+    try{
+        const accountPromise = await fetch("accounts");
+        if(!accountPromise.ok){
+            console.log("Problem");
+            return;
+        }
+        const fetchedAccount = await accountPromise.json();
+
+        return fetchedAccount;
+
+
+    }catch(error){
+        console.log("An error has occured:", error);
+    }
+}*/
+

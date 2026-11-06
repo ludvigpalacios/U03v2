@@ -14,8 +14,8 @@
     <main class="quiz-main">
         <article class="quiz-time">
             <ol class="quiz-stage-list">
-                <h1>5 minutes for all questions</h1>
-                <span>LOGICAL CHALLENGE QUESTION <span class="current-question">1</span> OF 5</span> </span>
+                <h1>10 minutes for all questions</h1>
+                <span>LOGICAL CHALLENGE QUESTION <span class="current-question">1</span> OF 10</span> </span>
             </ol>
             <ol class="question-list">
                 <h1 class="question-container">Q1: What ocean is the largest?</h1>                  
@@ -36,6 +36,14 @@
 
                     >TIME</text>
                 </svg>
+            </ol>
+            <ol class="currentScoreContainer">
+              <span>
+                Score: <span id="currentScoreContainer"> </span> </span>
+            </ol>
+            <ol class="currentAnsweredContainer">
+              <span > 
+                Answered: <span id="currentAnsweredContainer"> </span></span>
             </ol>
         </article>
         <article class="quiz-selection">
@@ -66,9 +74,11 @@
 
 
     </main>
-        <script src="js/quizv2.js"></script>
+        <script src="js/quizv2.js" defer></script> <!-- Functions to be exported-->
         <script  src="js/timer.js" defer></script>
         <script src="js/quiz/grabAccount.js" defer></script>
+        <script src="js/fetchAccount.js"></script>
+        
         
 
  </body>

@@ -15,32 +15,32 @@ console.log("createFeedbackContainer",createFeedbackContainer);
 //const Account= []; //Create multiple accounts
 //Read the JSON if there's any and save it in an Array, Account.
 let Account=[];
+let LoggedID= null;
 //Get the JSON
 let getAccount=null;
 
-try{
-    getAccount= localStorage.getItem("account");
+try {
+    const getAccount = localStorage.getItem("account");
+    const getLoggedID = localStorage.getItem("loggedID");
     console.log("Grabbed Account JSON: ", getAccount);
-    console.log("getAccount length")
-    //Check if the JSON is empty
-    if(getAccount!=null){
-        //Parse/Convert the JSON and assign it to Account
-        console.log("Grabbed accounts");
+    console.log("Grabbed Logged Account ID:", getLoggedID);
+
+
+    if (getAccount != null) {
         Account = JSON.parse(getAccount);
     }
-    console.log("Accounts:", Account);
-}catch(error){
-    //If the JSON data is not valid json format
-    if(error.name===SyntaxError){
-        console.log("Saved account data is not valid JSON format");
-
-    }else{
-        //If any other unknown error has occured, throw the specific error so that the user can google it
-        console.log("Some other unknown error has occured!", error.message);
-
+    if (getLoggedID != null) {
+        loggedID = JSON.parse(getLoggedID);
     }
-    
+    console.log("Accounts:", Account, "loggedID:", loggedID);
+} catch (error) {
+    if (error.name === "SyntaxError") {
+        console.log("Saved account data is not valid JSON format");
+    } else {
+        console.log("Some other unknown error has occured!", error.message);
+    }
 }
+console.log("Grabbed Accounnt", Account);
 
 let i=0;
 Account.forEach(index => {
@@ -115,6 +115,8 @@ function runAccountCreation(){
         createFeedbackContainer.textContent="The email and username already exists!";
         createFeedbackContainer.classList.add("warning");
 
+        return;
+
 
     }else if(!grabEmail.value.includes("@")){
         console.log("Your email is invalid! It must include a @ and a proper conocation*!");
@@ -141,9 +143,10 @@ function runAccountCreation(){
         //Copy the values and add it to last array in the account database 
         createFeedbackContainer.textContent="Account created!";
         createFeedbackContainer.classList.add("comfirm");
+        //[[username,email, password, score],{loggedIndex:null},]
 
-        const [username,email, password, score]= [grabUser.value, grabEmail.value, grabPassword.value];
-        Account [AccountID] = {username, email, password, score};
+        const [username, email, password, score] = [grabUser.value, grabEmail.value, grabPassword.value, 0];
+        Account[AccountID] = {username, email, password, score};
 
     }
     
@@ -153,10 +156,13 @@ function runAccountCreation(){
 
     //We want to turn this into JSON 
     const accountAsJSON=JSON.stringify(Account);
+    const loggedIDAsJSON=JSON.stringify(LoggedID);
     //Save the JSON in local storage 127.0.0.1
     localStorage.setItem("account", accountAsJSON);
+    localStorage.setItem("loggedID", loggedIDAsJSON);
     AccountID++;
     console.log("Accounts stored now:", AccountID);
+
 
 }
 
@@ -188,12 +194,6 @@ function checkDuplicateAccount(Account ,User, Email){
     return {userDuplicate:false, emailDuplicate:false};
 
 }
-
-function grabAccount(Account){
-
-
-}
-
 
 
 function logAccount(Users){
