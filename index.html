@@ -1,202 +1,317 @@
-<!--<!DOCTYPE html>-->
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/login.css" />
-    <link rel="stylesheet" href="css/createaccount.css" />
-    <link rel="stylesheet" href="css/iframe.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>BrainRush | Quiz App</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/createaccount.css">
+    <link rel="stylesheet" href="css/iframe.css">
 </head>
 
 <body>
-    <!-- confetti-->
-    <img class="gifConfetti hide" src="gifs/confetti.gif" aria-label="confetti gif">
 
+    <!-- Confetti -->
+    <img class="gifConfetti hide" src="gifs/confetti.gif" alt="" aria-hidden="true">
 
+    <!-- HEADER -->
     <header class="app-header">
-        <a class="logo">
+
+        <a class="logo" href="index.html" aria-label="BrainRush home">
             <svg aria-hidden="true" class="brand-mark" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="17" cy="17" fill="#1e1b4b" r="17"></circle>
+
                 <path
                     d="M16.9 10.8c-1-2.4-4.8-2.3-5.5.3-2.7-.1-4.1 3-2.4 5-1.8 2.1-.3 5.1 2.4 5.1.7 2.6 4.5 2.7 5.5.3V10.8Z"
                     fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path>
-                <path d="M17.1 10.8c1-2.4 4.8-2.3 5.5.3 2.7-.1 4.1 3 2.4 5 1.8 2.1.3 5.1-2.4 5.1-.7 2.6-4.5 2.7-5.5.3V10.8Z"
+
+                <path
+                    d="M17.1 10.8c1-2.4 4.8-2.3 5.5.3 2.7-.1 4.1 3 2.4 5 1.8 2.1.3 5.1-2.4 5.1-.7 2.6-4.5 2.7-5.5.3V10.8Z"
                     fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path>
+
                 <path
                     d="M11.4 15.2c1.2.1 2.1.8 2.4 1.9m8.8-1.9c-1.2.1-2.1.8-2.4 1.9M12 21.1c.7-1 1.6-1.5 2.7-1.5m7.3 1.5c-.7-1-1.6-1.5-2.7-1.5"
                     fill="none" stroke="white" stroke-linecap="round" stroke-width="1.35"></path>
             </svg>
+
             <span class="logotext">BrainRush</span>
         </a>
-        
-        <div class="topApp-selection-buttons">
-            <button id="appSelectionButton" class="play-button selectedButton">Play</button>
-            <button id="appSelectionButton" class="leaderboard-button" target="leaderboard-page">Leaderboard
+
+        <!-- TOP NAVIGATION -->
+        <nav class="topApp-selection-buttons" aria-label="Main navigation">
+
+            <button type="button" class="play-button selectedButton" data-target="play-page">
+                Play
             </button>
-            <button id="appSelectionButton" class="friends-button" target="friends-page">Friends</button>
-        </div>
-        <button class="header-button" id="openLogin">Log in</button>
+
+            <button type="button" class="leaderboard-button" data-target="leaderboard-page">
+                Leaderboard
+            </button>
+
+            <button type="button" class="friends-button" data-target="friends-page">
+                Friends
+            </button>
+
+        </nav>
+
+        <button type="button" class="header-button" id="openLogin">
+            Log in
+        </button>
+
     </header>
 
-    <iframe class="leaderboard-iframe hide" name="leaderboard-page" src="leaderboard.html" title="Leaderboard page" ></iframe>
-    <iframe class="friends-iframe hide" name="friends-page" src="friends.html" title="friends page"></iframe> 
+    <!-- IFRAMES -->
+    <iframe class="leaderboard-iframe hide" name="leaderboard-page" src="leaderboard.html"
+        title="Leaderboard page"></iframe>
 
-    <iframe class="quiz-iframe hide" name="quiz-page" src="quizv2.html" title="quiz page"></iframe> 
+    <iframe class="friends-iframe hide" name="friends-page" src="friends.html" title="Friends page"></iframe>
 
-    <main class="main-app">
+    <iframe class="quiz-iframe hide" name="quiz-page" src="quizv2.html" title="Quiz page"></iframe>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-app" id="play-page">
+
         <div class="main-app-header">
-            <p> 5 questions · 5 minutes</p>
-            <h1> Choose your challenge</h1>
-            <p>Stretch your reasoning or spark your imagination. Pick a question style to begin</p>
+
+            <p>5 questions · 5 minutes</p>
+
+            <h1>Choose your challenge</h1>
+
+            <p>
+                Stretch your reasoning or spark your imagination.
+                Pick a question style to begin.
+            </p>
+
         </div>
 
+        <!-- QUIZ SELECTION -->
         <div class="app-buttons">
-            <button class="app-button" target="quiz-page">
+
+            <button type="button" class="app-button" data-target="quiz-page" data-quiz="logical">
                 <span>01</span>
                 <span class="header-2">Logical</span>
                 <span>Patterns, facts, and problem solving</span>
             </button>
-            <button class="app-button" target="quiz-page">
+
+            <button type="button" class="app-button" data-target="quiz-page" data-quiz="creative">
                 <span>02</span>
                 <span class="header-2">Creative</span>
                 <span>Ideas, stories, and imagination</span>
             </button>
+
         </div>
-        <p id="saveProgress">Want to save your progress?
+
+        <!-- ACCOUNT LINK -->
+        <p id="saveProgress">
+            Want to save your progress?
             <a href="#" id="createAccount">Create a free account</a>
         </p>
 
-        <div class="bottomApp-selection-buttons">
-            <button id="appSelectionButton" class="play-button selectedButton">Play</button>
-            <button id="appSelectionButton" class="leaderboard-button" target="leaderboard-page">Leaderboard
+        <!-- BOTTOM NAVIGATION -->
+        <nav class="bottomApp-selection-buttons" aria-label="Bottom navigation">
+
+            <button type="button" class="play-button selectedButton" data-target="play-page">
+                Play
             </button>
-            <button id="appSelectionButton" class="friends-button" target="friends-page">Friends</button>
-        </div>
+
+            <button type="button" class="leaderboard-button" data-target="leaderboard-page">
+                Leaderboard
+            </button>
+
+            <button type="button" class="friends-button" data-target="friends-page">
+                Friends
+            </button>
+
+        </nav>
+
     </main>
 
+    <!-- LOGIN DIALOG -->
     <dialog id="login-page">
+
         <div class="login-page-body">
-            <img class="gifConfetti hide" src="gifs/confetti.gif" aria-label="confetti gif">
+
+            <img class="gifConfetti hide" src="gifs/confetti.gif" alt="" aria-hidden="true">
+
             <section class="login-header">
+
                 <div class="login-header-text">
+
                     <span>Your thinking, remembered</span>
-                    <h1>Pick up where you left off</h1>
-                    <p>Save quiz progress, keep your high score, and challenge people from the BrainRush community</p>
+
+                    <h2>Pick up where you left off</h2>
+
+                    <p>
+                        Save quiz progress, keep your high score,
+                        and challenge people from the BrainRush community.
+                    </p>
+
                 </div>
+
             </section>
 
             <section class="login-main">
+
                 <span>Welcome back</span>
+
                 <h2>Log in to continue</h2>
-                <p id="loginFeedbackHolder">Your next challenge is waiting</p>
+
+                <p id="loginFeedbackHolder" aria-live="polite">
+                    Your next challenge is waiting
+                </p>
 
                 <div class="login-input">
-                    <span>Email</span>
-                    <label class="email">
-                        <input id="loginInputEmail" label="Email" autofill="email" placeholder="youremail@email.com">
-                    </label>
-                    <span>Password</span>
-                    <label class="password">
-                        <input id="loginInputPassword" label="Password" autofill="password"
-                            placeholder="At least 6 characters">
-                    </label>
+
+                    <label for="loginInputEmail">Email</label>
+
+                    <div class="email">
+                        <input type="email" id="loginInputEmail" name="email" autocomplete="email"
+                            placeholder="youremail@email.com">
+                    </div>
+
+                    <label for="loginInputPassword">Password</label>
+
+                    <div class="password">
+                        <input type="password" id="loginInputPassword" name="password" autocomplete="current-password"
+                            placeholder="Enter your password">
+                    </div>
+
                 </div>
 
-                <button id="login-button" class="login-button">
+                <button type="button" id="login-button" class="login-button">
                     Log in
                 </button>
 
                 <div class="loginBottomContainer">
-                    <p>New to BrainRush?</p>
-                    <a href="#" id="accountCreate">Create an account</a>
 
-                    <span>Demo accounts and progress are stored locally on this device. </span>
+                    <p>New to BrainRush?</p>
+
+                    <a href="#" id="accountCreate">
+                        Create an account
+                    </a>
+
+                    <span>
+                        Demo accounts and progress are stored locally
+                        on this device.
+                    </span>
+
                 </div>
-                <button href="#" id="close-login">Go back</button>
+
+                <button type="button" id="close-login">
+                    Go back
+                </button>
 
                 <div class="adminContainer">
-                    <!--If secret credentials are entered, add an button element with "Flush accounts" inside, and the id "close-login" for style-->
-
+                    <!-- Admin controls are added by JavaScript -->
                 </div>
-
 
             </section>
+
         </div>
+
     </dialog>
 
+    <!-- CREATE ACCOUNT DIALOG -->
     <dialog id="account-create-page">
+
         <div class="account-create-body">
-            <img class="gifConfetti hide" src="gifs/confetti.gif" aria-label="confetti gif">
+
+            <img class="gifConfetti hide" src="gifs/confetti.gif" alt="" aria-hidden="true">
 
             <section class="login-header">
+
                 <div>
+
                     <span>Your thinking, remembered</span>
-                    <h1>Pick up where you left off</h1>
-                    <p>Save quiz progress, keep your high score, and challenge people from the BrainRush community</p>
+
+                    <h2>Pick up where you left off</h2>
+
+                    <p>
+                        Save quiz progress, keep your high score,
+                        and challenge people from the BrainRush community.
+                    </p>
+
                 </div>
+
             </section>
 
             <section class="login-main">
-                <span>Welcome back</span>
-                <h2>Create account to continue</h2>
-                <p id="createAccountFeedbackHolder">Your next challenge is waiting</p>
 
+                <span>Welcome to BrainRush</span>
+
+                <h2>Create an account to continue</h2>
+
+                <p id="createAccountFeedbackHolder" aria-live="polite">
+                    Your next challenge is waiting
+                </p>
 
                 <div class="create-input">
-                    <span>Username</span>
-                    <label class="email username">
-                        <input id="playerUser" label="username" placeholder="noobslayer420">
-                    </label>
 
-                    <span>Email</span>
-                    <label class="email">
-                        <input id="createEmail" label="Email" list="emailSuggestions" autofill="email"
+                    <!-- USERNAME -->
+                    <label for="playerUser">Username</label>
+
+                    <div class="email username">
+                        <input type="text" id="playerUser" name="username" autocomplete="username"
+                            placeholder="noobslayer420">
+                    </div>
+
+                    <!-- EMAIL -->
+                    <label for="createEmail">Email</label>
+
+                    <div class="email">
+                        <input type="email" id="createEmail" name="email" autocomplete="email"
                             placeholder="youremail@email.com">
+                    </div>
 
-                        <datalist id="emailSuggestions">
-                            <!--Suggest common emails-->
-                            <option value="@gmail.com"></option>
-                            <option value="@outlook.com"></option>
-                            <option value="@icloud.com"></option>
-                        </datalist>
-                    </label>
-                    <span>Password</span>
-                    <label class="password">
-                        <input id="createPassword" label="Password" autofill="password"
-                            placeholder="At least 6 characters">
-                    </label>
+                    <!-- PASSWORD -->
+                    <label for="createPassword">Password</label>
+
+                    <div class="password">
+                        <input type="password" id="createPassword" name="password" autocomplete="new-password"
+                            minlength="6" placeholder="At least 6 characters">
+                    </div>
+
                 </div>
 
-                <button id="createAccount-button" class="login-button">
+                <button type="button" id="createAccount-button" class="login-button">
                     Create account
                 </button>
-                <!--Copy style of loginBottomContainer-->
-                <div class="loginBottomContainer">
-                    <p>Already have an account?</p>
-                    <a href="#" id="closeCreateAccount">Login</a>
-                    <span>Demo accounts and progress are stored locally on this device. </span>
-                </div>
-                <button href="#" id="closeCreateAccount" class="goBackButton">Go back</button>
 
+                <div class="loginBottomContainer">
+
+                    <p>Already have an account?</p>
+
+                    <a href="#" id="closeCreateAccount">
+                        Log in
+                    </a>
+
+                    <span>
+                        Demo accounts and progress are stored locally
+                        on this device.
+                    </span>
+
+                </div>
+
+                <button type="button" id="closeCreateAccountBack" class="goBackButton">
+                    Go back
+                </button>
 
             </section>
+
         </div>
+
     </dialog>
 
-
-
-
+    <!-- JAVASCRIPT -->
     <script src="js/base.js" defer></script>
-    <script src="js/createAccount.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/switchpages.js"></script>
-
-
-
-
+    <script src="js/createAccount.js" defer></script>
+    <script src="js/login.js" defer></script>
+    <script src="js/switchpages.js" defer></script>
 
 </body>
+
+</html>
