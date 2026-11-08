@@ -1,3 +1,7 @@
+//import functions, variables from createAccount
+//import {fetchAccounts} from './createAccount.js';
+
+
 //Grab login window
 const loginPage = document.querySelector("#login-page");
 
@@ -63,10 +67,11 @@ function checkForAccount (Account, email, password){
 
             //Adding confetti gif
             addConfetti();
-
+            console.log("Iterations: ", i);
+            
             //return user.length;
-            currentUser=user.username;
-            return currentUser;
+            setLoggedID(i);
+
 
         }else{
             //Log out that account was not found!
@@ -74,6 +79,7 @@ function checkForAccount (Account, email, password){
             feedbackContainer.textContent="Account not found!";
             feedbackContainer.classList.add("warning");
         }
+        //The loggedID
         i++;
     })
 }
@@ -126,6 +132,8 @@ function runFlushAccounts(adminButton){
     })
 
 }
-
-
+function setLoggedID(id) {
+    loggedID = id;                                         // replaces null in the variable
+    localStorage.setItem("loggedID", JSON.stringify(id));  // replaces null in storage
+}
 
