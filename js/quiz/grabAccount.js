@@ -1,4 +1,4 @@
-function updateScore(username, newScore) {
+/*function updateScore(username, newScore) {
     const account = Account.find(user => user.username === username);
 
     if (account) {
@@ -9,4 +9,4 @@ function updateScore(username, newScore) {
     } else {
         console.log("Inget konto hittades med det användarnamnet.");
     }
-}
+};*/

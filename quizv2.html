@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,107 +14,48 @@
 <body>
 
     <main class="quiz-main">
-
-        <!-- QUIZ HEADER AND TIMER -->
-        <section class="quiz-time">
-
-            <div class="quiz-stage-list">
-
+        <article class="quiz-time">
+            <ol class="quiz-stage-list">
                 <h1>5 minutes for all questions</h1>
+                <span>LOGICAL CHALLENGE QUESTION <span class="current-question">1</span> OF 5</span> </span>
+            </ol>
+            <ol class="question-list">
+                <h1 class="question-container">Q1: What ocean is the largest?</h1>                  
+            </ol>
+            <ol class="clock-list">
+                <svg width="100" height="100" class="time-container">
+                    <!--We have to change the time container -->
+                    <circle cx="50" cy="50" r="40" fill="grey" stroke="black" stroke-width="2"> </circle>
+                    <text
+                        x="50" 
+                        y="50"
+                        text-anchor="middle"
+                        dominant-baseline="middle"
+                        fill="white"
+                        font-size="1rem"
+                        font-family="Arial, sans-serif"
+                        id="text-time-container"
 
-                <p>
-                    LOGICAL CHALLENGE QUESTION
-                    <span class="current-question">1</span>
-                    OF 5
-                </p>
-
-            </div>
-
-            <!-- CURRENT QUESTION -->
-            <div class="question-list">
-
-                <h2 class="question-container">
-                    Q1: What ocean is the largest?
-                </h2>
-
-            </div>
-
-            <!-- CIRCULAR TIMER -->
-            <div class="clock-list">
-
-                <svg width="100" height="100" class="time-container" viewBox="0 0 100 100" role="img"
-                    aria-label="Quiz countdown timer">
-
-                    <circle cx="50" cy="50" r="40" fill="grey" stroke="black" stroke-width="2"></circle>
-
-                    <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="16"
-                        font-family="Arial, sans-serif" id="text-time-container">
-                        TIME
-                    </text>
-
+                    >TIME</text>
                 </svg>
-
-            </div>
-
-        </section>
-
-        <!-- ANSWER OPTIONS -->
-        <section class="quiz-answers" aria-label="Answer options">
-
-            <!-- ANSWER A -->
-            <div class="quiz-selection">
-
-                <span>A:</span>
-
-                <button type="button" class="quiz-button">
-                    Atlantic Ocean
-                </button>
-
-            </div>
-
-            <!-- ANSWER B -->
-            <div class="quiz-selection">
-
-                <span>B:</span>
-
-                <button type="button" class="quiz-button">
-                    Indian Ocean
-                </button>
-
-            </div>
-
-            <!-- ANSWER C -->
-            <div class="quiz-selection">
-
-                <span>C:</span>
-
-                <button type="button" class="quiz-button">
-                    Pacific Ocean
-                </button>
-
-            </div>
-
-            <!-- ANSWER D -->
-            <div class="quiz-selection">
-
-                <span>D:</span>
-
-                <button type="button" class="quiz-button">
-                    Arctic Ocean
-                </button>
-
-            </div>
-
-        </section>
-
-        <!-- TIMER -->
-        <div class="timer"></div>
-
-        <!-- ANSWER EXPLANATION -->
-        <p id="explanation-container" aria-live="polite">
-            The correct answer will be highlighted in green
-            after you select an answer.
-        </p>
+            </ol>
+        </article>
+        <article class="quiz-selection">
+            <span>A:</span>
+            <button class="quiz-button">Atlantic Ocean</button>
+        </article>
+        <article class="quiz-selection">
+            <span>B:</span>
+            <button class="quiz-button">Indian Ocean</button>
+        </article>
+        <article class="quiz-selection">
+            <span>C:</span>
+            <button class="quiz-button">Pacific Ocean</button>
+        </article>
+        <article class="quiz-selection">
+            <span>D:</span>
+            <button class="quiz-button">Artic Ocean</button class="quiz-button">            
+        </article>
 
         <!-- NEXT QUESTION BUTTON -->
         <div class="next-question-container">
@@ -125,11 +67,11 @@
         </div>
 
     </main>
-
-    <!-- JAVASCRIPT -->
-    <script src="js/quiz/quizv2.js" defer></script>
-    <script src="js/quiz/timer.js" defer></script>
-    <script src="js/quiz/grabAccount.js" defer></script>
+    
+        <script  src="js/quiz/quizv2.js" defer></script>
+        <script  src="js/quiz/timer.js" defer></script>
+        <script src="js/quiz/grabAccount.js" defer></script>
+        
 
 </body>
 

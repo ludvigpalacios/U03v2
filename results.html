@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/results.css" />
+    <title>Results</title>
+</head>
+<body>
+    <main class="results">
+        <p class="results-label">Quiz complete</p>
+        <h1>Your results</h1>
+
+        <div class="results-grid">
+            <div class="result-card">
+                <span class="result-number" id="answered">0</span>
+                <span class="result-text">Answered</span>
+            </div>
+            <div class="result-card correct">
+                <span class="result-number" id="correct">0</span>
+                <span class="result-text">Correct</span>
+            </div>
+            <div class="result-card incorrect">
+                <span class="result-number" id="incorrect">0</span>
+                <span class="result-text">Incorrect</span>
+            </div>
+            <div class="result-card points">
+                <span class="result-number" id="points">0</span>
+                <span class="result-text">Total points</span>
+            </div>
+        </div>
+
+        <button class="results-button" id="playAgain">Play again</button>
+    </main>
+    <script src="js/showResults.js"></script>
+</body>
+</html>
